@@ -727,6 +727,23 @@
       margin-bottom: 12px;
     }
     .listing-location i { margin-right: 5px; }
+    .listing-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .listing-specs span {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .listing-specs i { color: var(--brand-blue); font-size: 0.8rem; }
     .listing-price {
       font-family: var(--ff-head);
       font-size: 1.3rem;
@@ -2443,6 +2460,13 @@
       : (l.moneda==='USD' ? 'USD ' : l.moneda==='ARS' ? '$ ' : '') + pNum.toLocaleString('es-AR');
     const fecha  = relativeDate(l.created_at);
 
+    const specParts = [];
+    if (l.m2 && parseFloat(l.m2) > 0)                specParts.push(`<span><i class="fas fa-ruler-combined"></i> ${parseFloat(l.m2).toLocaleString('es-AR')} m²</span>`);
+    if (l.ambientes && parseInt(l.ambientes) > 0)     specParts.push(`<span><i class="fas fa-door-open"></i> ${parseInt(l.ambientes)} amb.</span>`);
+    if (l.dormitorios && parseInt(l.dormitorios) > 0) specParts.push(`<span><i class="fas fa-bed"></i> ${parseInt(l.dormitorios)} dorm.</span>`);
+    if (l.banos && parseInt(l.banos) > 0)             specParts.push(`<span><i class="fas fa-bath"></i> ${parseInt(l.banos)} baño${parseInt(l.banos)===1?'':'s'}</span>`);
+    const specsHtml = specParts.length ? `<div class="listing-specs">${specParts.join('')}</div>` : '';
+
     const slides = fotos.map((f,i) =>
       `<img src="${escH(f)}" class="listing-img carousel-slide${i===0?' active':''}" loading="lazy" alt="Foto ${i+1}">`
     ).join('');
@@ -2465,6 +2489,7 @@
             </div>
             <h4 class="listing-title">${escH(l.titulo)}</h4>
             <p class="listing-location"><i class="fas fa-map-marker-alt" style="color:${pColor}"></i> ${escH(l.zona)}, San Juan</p>
+            ${specsHtml}
             <div class="listing-price" style="color:${pColor}">${escH(pStr)}</div>
             <a href="https://wa.me/${tel}?text=${waMsg}" target="_blank" rel="noopener"
                class="btn-listing-contact" style="${isMine ? 'background:var(--mine-gold);' : ''}">

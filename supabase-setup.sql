@@ -111,3 +111,21 @@ create policy "ver_todo_admin"
 -- from public.listings
 -- group by 1
 -- order by avisos desc;
+
+
+-- ================================================
+-- MIGRACIÓN: superficie, ambientes, dormitorios, baños
+-- ------------------------------------------------
+-- Agrega los datos que se muestran en la tarjeta de
+-- cada aviso (m², ambientes, dormitorios, baños),
+-- igual que en los portales inmobiliarios grandes.
+-- Son opcionales: si el aviso no los tiene, no se muestran.
+--
+-- Pegalo en: SQL Editor > New query > Run
+-- ================================================
+
+alter table public.listings
+  add column if not exists m2          numeric,
+  add column if not exists ambientes   integer,
+  add column if not exists dormitorios integer,
+  add column if not exists banos       integer;

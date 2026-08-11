@@ -241,6 +241,8 @@ select.ctrl:invalid,select.ctrl.ph{color:#8b96a6;font-weight:500}
   background:#f6f8fb;border:1px solid #e9edf4;border-radius:14px;padding:16px
 }
 @media(max-width:520px){.field-group{grid-template-columns:1fr}}
+.specs-group{grid-template-columns:repeat(4,1fr)}
+@media(max-width:680px){.specs-group{grid-template-columns:1fr 1fr}}
 textarea.ctrl{resize:vertical;min-height:118px;line-height:1.55}
 .prefix{display:flex;align-items:stretch}
 .prefix span{
@@ -569,6 +571,25 @@ footer a:hover{color:#fff;text-decoration:underline}
                       <option value="Alquiler">Alquilar</option>
                       <option value="Busco">Busco / Necesito</option>
                     </select>
+                  </div>
+                </div>
+
+                <div class="f-full field-group specs-group" id="specsGroup" style="display:none;">
+                  <div>
+                    <label class="lbl" for="f_m2">Superficie <span class="opt">— m², opcional</span></label>
+                    <input class="ctrl" type="number" id="f_m2" min="0" placeholder="Ej: 120">
+                  </div>
+                  <div>
+                    <label class="lbl" for="f_ambientes">Ambientes <span class="opt">— opcional</span></label>
+                    <input class="ctrl" type="number" id="f_ambientes" min="0" placeholder="Ej: 4">
+                  </div>
+                  <div>
+                    <label class="lbl" for="f_dormitorios">Dormitorios <span class="opt">— opcional</span></label>
+                    <input class="ctrl" type="number" id="f_dormitorios" min="0" placeholder="Ej: 3">
+                  </div>
+                  <div>
+                    <label class="lbl" for="f_banos">Baños <span class="opt">— opcional</span></label>
+                    <input class="ctrl" type="number" id="f_banos" min="0" placeholder="Ej: 2">
                   </div>
                 </div>
 
@@ -1017,6 +1038,21 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 
   /* =========================================================
+     SUPERFICIE / AMBIENTES / DORMITORIOS / BAÑOS
+     Solo tiene sentido para inmuebles, no para el sector minero.
+  ========================================================= */
+  const MINING_CATS = ['Equipos y Maquinaria Minera','Herramientas Mineras','Vehículos y Logística Minera','Insumos y Materiales Mineros'];
+  (function () {
+    const selCat = document.getElementById('f_categoria');
+    const specs  = document.getElementById('specsGroup');
+    function toggleSpecs() {
+      specs.style.display = MINING_CATS.indexOf(selCat.value) === -1 && selCat.value ? 'grid' : 'none';
+    }
+    selCat.addEventListener('change', toggleSpecs);
+    toggleSpecs();
+  })();
+
+  /* =========================================================
      FILTRO DE CONTENIDO
   ========================================================= */
   const BAD_WORDS = ['sexo','porno','desnudo','desnuda','xxx','erotico','erotica','coger','puta','puto','trola','trolo','maricon','concha','pija','verga','chota','mierda','carajo','conchudo','forro','pelotudo','estupido','estupida','retardado','mogolico','putita','putito','zorra','perra','hijo de puta','hdp','la concha de tu madre','concha de tu madre','ctm','la puta que te pario','lpqtp','cagada','meada','culiado','culiada','chupala','chupame','pajero','pajera','tetas','tetona','culon','nalgas','nalgon','pene','vagina','clitoris','semen','esperma','masturbar','masturbacion','orgasmo','eyacular','follar','follada','follador','cachonda','cachondo','pedofilia','violacion','violar','abuso sexual','pornografia infantil','loli','snuff','necrofilia','zoofilia','bestialidad','coprofilia','urofilia'];
@@ -1180,6 +1216,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const nombre      = g('f_nombre').value.trim();
     const telefono    = g('f_telefono').value.replace(/\D/g, '');
     const acepto      = g('f_acepto').checked;
+    const m2Raw          = g('f_m2').value.trim();
+    const ambientesRaw   = g('f_ambientes').value.trim();
+    const dormitoriosRaw = g('f_dormitorios').value.trim();
+    const banosRaw       = g('f_banos').value.trim();
 
     if (titulo.length < 10)        return showAlert('Escribí un título un poco más descriptivo (mínimo 10 caracteres).', g('f_titulo'));
     if (containsBadWords(titulo))  return showAlert('El título contiene palabras que no podemos publicar. Revisalo, por favor.', g('f_titulo'));
@@ -1204,6 +1244,10 @@ document.addEventListener('DOMContentLoaded', function () {
       zona:        zona,
       descripcion: descripcion,
       origen:      ORIGEN,
+      m2:          m2Raw ? parseFloat(m2Raw) : null,
+      ambientes:   ambientesRaw ? parseInt(ambientesRaw, 10) : null,
+      dormitorios: dormitoriosRaw ? parseInt(dormitoriosRaw, 10) : null,
+      banos:       banosRaw ? parseInt(banosRaw, 10) : null,
       status:      'aprobado'
     };
 
@@ -1221,14 +1265,23 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       btn.textContent = 'Publicando tu aviso...';
-      let { data, error } = await sb.from('listings').insert([payload]).select('id').single();
-
-      /* Si la columna 'origen' todavía no existe en la base, reintentamos sin ella.
-         Preferimos perder el dato de campaña antes que perder la publicación. */
-      if (error && /origen/i.test(error.message || '')) {
-        const sinOrigen = Object.assign({}, payload);
-        delete sinOrigen.origen;
-        ({ data, error } = await sb.from('listings').insert([sinOrigen]).select('id').single());
+      let attemptPayload = Object.assign({}, payload);
+      let data, error;
+      const removibles = ['origen', 'm2', 'ambientes', 'dormitorios', 'banos'];
+      for (let intento = 0; intento <= removibles.length; intento++) {
+        ({ data, error } = await sb.from('listings').insert([attemptPayload]).select('id').single());
+        if (!error) break;
+        /* Si una columna todavía no existe en la base (porque falta correr el SQL),
+           la sacamos y reintentamos. Preferimos perder ese dato antes que perder
+           la publicación completa. */
+        const msg = error.message || '';
+        const match = /column "?(\w+)"?[^']*does not exist/i.exec(msg) || /'(\w+)'\s*column/i.exec(msg);
+        const colFaltante = match ? match[1] : null;
+        if (colFaltante && (colFaltante in attemptPayload)) {
+          delete attemptPayload[colFaltante];
+          continue;
+        }
+        break;
       }
       if (error) throw error;
 
@@ -1308,7 +1361,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!window.localStorage) return;
 
     const campos = ['f_titulo','f_categoria','f_operacion','f_zona','f_precio',
-                    'f_moneda','f_descripcion','f_nombre','f_telefono']
+                    'f_moneda','f_descripcion','f_nombre','f_telefono',
+                    'f_m2','f_ambientes','f_dormitorios','f_banos']
                    .map(id => document.getElementById(id)).filter(Boolean);
     let t;
 
@@ -1324,6 +1378,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const el = document.getElementById(id);
             if (el) el.dispatchEvent(new Event('input'));
           });
+          const elCat = document.getElementById('f_categoria');
+          if (elCat) elCat.dispatchEvent(new Event('change'));
           const aviso = document.getElementById('draftNote');
           if (aviso) aviso.classList.remove('hidden');
         }
