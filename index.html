@@ -1217,6 +1217,29 @@
     =========================== */
     .real-listings-section { padding: 80px 0; background: white; }
     .filter-bar-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .listings-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .listings-toolbar .filter-bar-wrap { margin-bottom: 0; flex: 1 1 auto; }
+    .listings-toolbar-right { display: flex; flex-wrap: wrap; gap: 8px; flex-shrink: 0; }
+    .listings-select {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--text-mid);
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-family: var(--ff-head);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .listings-select:focus { outline: none; border-color: var(--brand-blue); }
+    .listings-count { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
     .filter-chip {
       background: var(--surface);
       border: 1.5px solid var(--border);
@@ -1746,15 +1769,48 @@
       <p class="section-subtitle">Propiedades y equipos reales de particulares de San Juan. Contacto directo con el dueño — sin intermediarios.</p>
     </div>
     <!-- Filtros -->
-    <div class="filter-bar-wrap" id="filterBar">
-      <button class="filter-chip active" onclick="filterListings(null,this)">Todos</button>
-      <button class="filter-chip" onclick="filterListings('Casas',this)">🏠 Casas</button>
-      <button class="filter-chip" onclick="filterListings('Departamentos',this)">🏢 Deptos</button>
-      <button class="filter-chip" onclick="filterListings('Terrenos',this)">🗺 Terrenos</button>
-      <button class="filter-chip" onclick="filterListings('Galpones y Depósitos',this)">🏭 Galpones</button>
-      <button class="filter-chip" onclick="filterListings('Equipos y Maquinaria Minera',this)">⚙️ Equipos mineros</button>
-      <button class="filter-chip" onclick="filterListings('Vehículos y Logística Minera',this)">🚛 Vehículos</button>
+    <div class="listings-toolbar">
+      <div class="filter-bar-wrap" id="filterBar">
+        <button class="filter-chip active" onclick="setCategoryFilter(null,this)">Todos</button>
+        <button class="filter-chip" onclick="setCategoryFilter('Casas',this)"><i class="fas fa-home"></i> Casas</button>
+        <button class="filter-chip" onclick="setCategoryFilter('Departamentos',this)"><i class="fas fa-building"></i> Deptos</button>
+        <button class="filter-chip" onclick="setCategoryFilter('Terrenos',this)"><i class="fas fa-map"></i> Terrenos</button>
+        <button class="filter-chip" onclick="setCategoryFilter('Galpones y Depósitos',this)"><i class="fas fa-warehouse"></i> Galpones</button>
+        <button class="filter-chip" onclick="setCategoryFilter('Equipos y Maquinaria Minera',this)"><i class="fas fa-cogs"></i> Equipos mineros</button>
+        <button class="filter-chip" onclick="setCategoryFilter('Vehículos y Logística Minera',this)"><i class="fas fa-truck"></i> Vehículos</button>
+      </div>
+      <div class="listings-toolbar-right">
+        <select id="zonaFilterSelect" class="listings-select" onchange="applyFilters()" aria-label="Filtrar por zona">
+          <option value="">Todas las zonas</option>
+          <option value="Capital">Capital</option>
+          <option value="Rivadavia">Rivadavia</option>
+          <option value="Rawson">Rawson</option>
+          <option value="Chimbas">Chimbas</option>
+          <option value="Santa Lucía">Santa Lucía</option>
+          <option value="Pocito">Pocito</option>
+          <option value="Caucete">Caucete</option>
+          <option value="Albardón">Albardón</option>
+          <option value="9 de Julio">9 de Julio</option>
+          <option value="San Martín">San Martín</option>
+          <option value="Angaco">Angaco</option>
+          <option value="Ullum">Ullum</option>
+          <option value="Zonda">Zonda</option>
+          <option value="Calingasta">Calingasta</option>
+          <option value="Iglesia">Iglesia</option>
+          <option value="Jáchal">Jáchal</option>
+          <option value="Valle Fértil">Valle Fértil</option>
+          <option value="25 de Mayo">25 de Mayo</option>
+          <option value="Sarmiento">Sarmiento</option>
+          <option value="Otra zona">Otra zona</option>
+        </select>
+        <select id="sortFilterSelect" class="listings-select" onchange="applyFilters()" aria-label="Ordenar avisos">
+          <option value="recientes">Más recientes</option>
+          <option value="precio_asc">Menor precio</option>
+          <option value="precio_desc">Mayor precio</option>
+        </select>
+      </div>
     </div>
+    <p class="listings-count" id="listingsCount"></p>
     <!-- Estado: cargando -->
     <div class="listings-state" id="listingsLoading">
       <div class="spinner-border text-success mb-3" role="status" style="width:2.5rem;height:2.5rem;border-width:3px;"></div>
@@ -2257,6 +2313,7 @@
      SUPABASE: CARGAR AVISOS
   =========================== */
   let allListings = [];
+  let currentCategory = null;
 
   async function loadListings() {
     const elLoading     = document.getElementById('listingsLoading');
@@ -2277,7 +2334,7 @@
       if (error) throw error;
       allListings = data || [];
       elLoading?.classList.add('hidden');
-      renderListings(allListings);
+      applyFilters();
       focusDeepLinkedAd();
     } catch(err) {
       elLoading?.classList.add('hidden');
@@ -2285,10 +2342,37 @@
     }
   }
 
-  function filterListings(categoria, btn) {
+  function setCategoryFilter(categoria, btn) {
     document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const filtered = categoria ? allListings.filter(l => l.categoria === categoria) : allListings;
+    currentCategory = categoria;
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const zona = document.getElementById('zonaFilterSelect')?.value || '';
+    const sort = document.getElementById('sortFilterSelect')?.value || 'recientes';
+
+    let filtered = currentCategory ? allListings.filter(l => l.categoria === currentCategory) : allListings.slice();
+    if (zona) filtered = filtered.filter(l => l.zona === zona);
+
+    if (sort === 'precio_asc' || sort === 'precio_desc') {
+      const conPrecio = filtered.filter(l => l.precio && l.precio !== 'A consultar' && !isNaN(parseFloat(l.precio)));
+      const sinPrecio = filtered.filter(l => !(l.precio && l.precio !== 'A consultar' && !isNaN(parseFloat(l.precio))));
+      conPrecio.sort((a,b) => sort === 'precio_asc'
+        ? parseFloat(a.precio) - parseFloat(b.precio)
+        : parseFloat(b.precio) - parseFloat(a.precio));
+      filtered = conPrecio.concat(sinPrecio);
+    } else {
+      filtered = filtered.slice().sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+    }
+
+    const elCount = document.getElementById('listingsCount');
+    if (elCount) {
+      elCount.textContent = allListings.length
+        ? `${filtered.length} aviso${filtered.length === 1 ? '' : 's'} encontrado${filtered.length === 1 ? '' : 's'}`
+        : '';
+    }
     renderListings(filtered);
   }
 
@@ -2330,6 +2414,17 @@
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
+  function relativeDate(dateStr) {
+    if (!dateStr) return '';
+    const diffMs = Date.now() - new Date(dateStr).getTime();
+    const diffH  = Math.floor(diffMs / 3600000);
+    if (diffH < 1)  return 'Publicado hace instantes';
+    if (diffH < 24) return `Publicado hace ${diffH} hora${diffH === 1 ? '' : 's'}`;
+    const diffD = Math.floor(diffH / 24);
+    if (diffD < 7)  return `Publicado hace ${diffD} día${diffD === 1 ? '' : 's'}`;
+    return `Publicado el ${new Date(dateStr).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'})}`;
+  }
+
   function renderCard(l) {
     const fotos  = (l.fotos && l.fotos.length) ? l.fotos : [DEFAULT_IMGS[l.categoria] || DEFAULT_IMGS['_default']];
     const carId  = 'c' + String(l.id).replace(/[^a-z0-9]/gi,'').slice(0,14);
@@ -2346,7 +2441,7 @@
     const pStr   = (!l.precio || l.precio==='A consultar' || isNaN(pNum))
       ? 'A consultar'
       : (l.moneda==='USD' ? 'USD ' : l.moneda==='ARS' ? '$ ' : '') + pNum.toLocaleString('es-AR');
-    const fecha  = l.created_at ? new Date(l.created_at).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'}) : '';
+    const fecha  = relativeDate(l.created_at);
 
     const slides = fotos.map((f,i) =>
       `<img src="${escH(f)}" class="listing-img carousel-slide${i===0?' active':''}" loading="lazy" alt="Foto ${i+1}">`
@@ -2375,7 +2470,7 @@
                class="btn-listing-contact" style="${isMine ? 'background:var(--mine-gold);' : ''}">
               <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
             </a>
-            ${fecha ? `<p class="listing-demo-badge"><i class="fas fa-calendar-alt me-1"></i> Publicado el ${fecha}</p>` : ''}
+            ${fecha ? `<p class="listing-demo-badge"><i class="fas fa-calendar-alt me-1"></i> ${fecha}</p>` : ''}
           </div>
         </div>
       </div>`;
