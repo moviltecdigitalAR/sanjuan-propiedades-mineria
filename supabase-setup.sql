@@ -129,3 +129,17 @@ alter table public.listings
   add column if not exists ambientes   integer,
   add column if not exists dormitorios integer,
   add column if not exists banos       integer;
+
+
+-- ================================================
+-- MIGRACIÓN: marcar avisos de ejemplo
+-- ------------------------------------------------
+-- Los avisos con es_ejemplo = true se ocultan del
+-- sitio público. Vos seguís viéndolos si entrás a
+-- https://sanjuaninmobiliario.com.ar/?ver_ejemplos=1
+--
+-- Pegalo en: SQL Editor > New query > Run
+-- ================================================
+
+alter table public.listings
+  add column if not exists es_ejemplo boolean default false;

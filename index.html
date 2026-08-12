@@ -3,14 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>San Juan Propiedades & Minería — Publicá Gratis | Particulares</title>
-  <meta name="description" content="Publicá gratis tu casa, departamento, galpón, terreno o equipo minero en San Juan. Sin comisión, sin intermediarios, sin vencimiento. Solo particulares.">
-  <meta property="og:title" content="Publicá Gratis en San Juan | San Juan Propiedades & Minería">
-  <meta property="og:description" content="Tus avisos en Instagram duran 24hs. Los nuestros duran hasta que vendés. 100% gratis para particulares de San Juan.">
+  <title>San Juan Propiedades & Minería — Avisos de Inmuebles y Minería en San Juan</title>
+  <meta name="description" content="Portal de propiedades y minería de San Juan. Casas, departamentos, terrenos, galpones, maquinaria minera y más. Publicá gratis o encontrá lo que buscás.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="San Juan Propiedades & Minería">
+  <link rel="canonical" href="https://sanjuaninmobiliario.com.ar/">
+  <meta property="og:title" content="San Juan Propiedades & Minería — Inmuebles y Minería en San Juan">
+  <meta property="og:description" content="Portal de propiedades y minería de San Juan. Publicá gratis o encontrá lo que buscás.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="San Juan Propiedades & Minería">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:url" content="https://sanjuaninmobiliario.com.ar/">
   <meta property="og:image" content="https://sanjuaninmobiliario.com.ar/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="San Juan Propiedades & Minería — Inmuebles y Minería en San Juan">
+  <meta name="twitter:description" content="Portal de propiedades y minería de San Juan. Publicá gratis o encontrá lo que buscás.">
+  <meta name="twitter:image" content="https://sanjuaninmobiliario.com.ar/assets/og-image.jpg">
   <link rel="icon" href="assets/logo-sjpm.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "San Juan Propiedades & Minería",
+        "url": "https://sanjuaninmobiliario.com.ar/",
+        "description": "Portal de propiedades y minería de San Juan. Publicá gratis o encontrá lo que buscás.",
+        "inLanguage": "es-AR"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "San Juan Propiedades & Minería",
+        "url": "https://sanjuaninmobiliario.com.ar/",
+        "areaServed": {
+          "@type": "State",
+          "name": "San Juan",
+          "containedInPlace": { "@type": "Country", "name": "Argentina" }
+        },
+        "sameAs": [
+          "https://www.instagram.com/sanjuaninmobiliario",
+          "https://www.facebook.com/profile.php?id=61593016464655"
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -2345,11 +2387,12 @@
       return;
     }
     try {
+      const showEjemplos = new URLSearchParams(location.search).get('ver_ejemplos') === '1';
       const { data, error } = await sb.from('listings')
         .select('*')
         .order('created_at', { ascending: false });
       if (error) throw error;
-      allListings = data || [];
+      allListings = (data || []).filter(l => showEjemplos || !l.es_ejemplo);
       elLoading?.classList.add('hidden');
       applyFilters();
       focusDeepLinkedAd();
