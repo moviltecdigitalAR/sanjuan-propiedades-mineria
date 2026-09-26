@@ -1,1910 +1,319 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>San Juan Propiedades & Minería — Avisos de Inmuebles y Minería en San Juan</title>
-  <meta name="description" content="Portal de propiedades y minería de San Juan. Casas, departamentos, terrenos, galpones, maquinaria minera y más. Publicá gratis o encontrá lo que buscás.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="author" content="San Juan Propiedades & Minería">
-  <link rel="canonical" href="https://sanjuaninmobiliario.com.ar/">
-  <meta property="og:title" content="San Juan Propiedades & Minería — Inmuebles y Minería en San Juan">
-  <meta property="og:description" content="Portal de propiedades y minería de San Juan. Publicá gratis o encontrá lo que buscás.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="San Juan Propiedades & Minería">
-  <meta property="og:locale" content="es_AR">
-  <meta property="og:url" content="https://sanjuaninmobiliario.com.ar/">
-  <meta property="og:image" content="https://sanjuaninmobiliario.com.ar/assets/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="San Juan Propiedades & Minería — Inmuebles y Minería en San Juan">
-  <meta name="twitter:description" content="Portal de propiedades y minería de San Juan. Publicá gratis o encontrá lo que buscás.">
-  <meta name="twitter:image" content="https://sanjuaninmobiliario.com.ar/assets/og-image.jpg">
-  <link rel="icon" href="assets/logo-sjpm.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "name": "San Juan Propiedades & Minería",
-        "url": "https://sanjuaninmobiliario.com.ar/",
-        "description": "Portal de propiedades y minería de San Juan. Publicá gratis o encontrá lo que buscás.",
-        "inLanguage": "es-AR"
-      },
-      {
-        "@type": "LocalBusiness",
-        "name": "San Juan Propiedades & Minería",
-        "url": "https://sanjuaninmobiliario.com.ar/",
-        "areaServed": {
-          "@type": "State",
-          "name": "San Juan",
-          "containedInPlace": { "@type": "Country", "name": "Argentina" }
-        },
-        "sameAs": [
-          "https://www.instagram.com/sanjuaninmobiliario",
-          "https://www.facebook.com/profile.php?id=61593016464655"
-        ]
-      }
-    ]
-  }
-  </script>
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moviltec Digital — Sistemá tus ventas automáticas</title>
+  <meta name="description" content="Convertí tu Instagram en una máquina de ventas. Bot automático, catálogo digital y cierre de ventas 24/7 para emprendedores argentinos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ===========================
-       VARIABLES & BASE
-       Identidad editorial — papel cálido, tinta,
-       acento arcilla (San Juan). Nombres de tokens
-       conservados; sólo cambian los valores.
-    =========================== */
-    :root {
-      /* Acento de marca (arcilla / terracota) — reemplaza al azul */
-      --brand-blue:   #9c4a2e;   /* acento primario */
-      --brand-blue2:  #b8613f;   /* acento claro */
-      --brand-green:  #3f6b4f;
-      --brand-dark:   #201c17;   /* tinta profunda para bloques oscuros */
-      --free-green:   #3f6b4f;   /* verde bosque apagado (gratis/éxito) */
-      --free-light:   #e7ede6;
-      --mine-gold:    #8a6d2f;   /* ocre/oliva minería, no dorado brillante */
-      --mine-dark:    #5f4a1e;
-      --mine-light:   #efe9d8;
-      --pain-red:     #a3341f;
-      --text-dark:    #1c1a17;   /* tinta cálida, no negro puro */
-      --text-mid:     #4a463f;
-      --text-muted:   #837b6d;
-      --border:       #e3dccd;   /* hairline cálido */
-      --surface:      #f2ece0;   /* secciones alternas (papel más marcado) */
-      --paper:        #f7f2e8;   /* fondo general cálido */
-      --white:        #fffdf8;   /* superficie de tarjeta (blanco cálido) */
-      --radius-sm:    3px;
-      --radius-md:    5px;
-      --radius-lg:    9px;
-      --shadow-sm:    0 1px 2px rgba(40,30,18,.05), 0 1px 3px rgba(40,30,18,.05);
-      --shadow-md:    0 6px 18px -8px rgba(40,30,18,.18), 0 2px 6px -3px rgba(40,30,18,.10);
-      --shadow-lg:    0 30px 60px -28px rgba(40,30,18,.30), 0 8px 20px -12px rgba(40,30,18,.15);
-      --ff-head:      'Fraunces', Georgia, 'Times New Roman', serif;
-      --ff-body:      'Libre Franklin', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#F5F3EE;
+      --surface:#FFFFFF;
+      --card:#FFFFFF;
+      --border:#E8E5DF;
+      --text:#2D2A26;
+      --text-secondary:#6B6560;
+      --accent:#25D366;
+      --accent-dark:#1AAE56;
+      --sage:#6B8E6E;
+      --sage-light:#E8F0E9;
+      --warm:#C4A574;
+      --shadow:0 4px 24px rgba(45,42,38,0.06);
+      --shadow-strong:0 12px 40px rgba(45,42,38,0.12);
+      --radius:20px;
+      --radius-sm:12px;
     }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    h1,h2,h3,h4,h5,h6{font-family:'Manrope',sans-serif;line-height:1.15;letter-spacing:-0.02em}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;background:rgba(245,243,238,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 28px;gap:16px}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo-text{font-size:1.1rem;font-weight:800;letter-spacing:-0.5px;white-space:nowrap;line-height:1.1;color:var(--text)}
+    .nav-logo-text span{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;color:var(--sage)}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:var(--text-secondary);font-size:0.88rem;font-weight:600;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{background:var(--text);color:#fff;padding:10px 22px;border-radius:50px;font-size:0.85rem;font-weight:700;white-space:nowrap;transition:transform .2s,background .2s}
+    .nav-cta:hover{transform:translateY(-2px);background:#1a1815}
+    @media(max-width:720px){.nav-links{display:none}}
 
-    html { scroll-behavior: smooth; }
+    /* HERO */
+    .hero{padding:70px 24px 60px;background:var(--bg);position:relative;overflow:hidden}
+    .hero-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--sage-light);border:1px solid rgba(107,142,110,0.2);color:var(--sage);font-size:.72rem;font-weight:800;padding:6px 16px;border-radius:50px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.8px}
+    .hero h1{font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:400;margin-bottom:24px;color:var(--text);font-family:'DM Serif Display',serif;line-height:1.05;letter-spacing:-0.01em}
+    .hero h1 em{font-style:normal;position:relative;display:inline-block}
+    .hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:8px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 12.5 0, 25 8 T 50 8 T 75 8 T 100 8' stroke='%236B8E6E' stroke-width='3' fill='none'/%3E%3C/svg%3E") no-repeat center;background-size:100% 100%;opacity:.85;z-index:-1}
+    .hero-sub{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--text-secondary);max-width:480px;margin-bottom:28px;line-height:1.7}
+    .hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:18px 36px;border-radius:50px;font-size:1.05rem;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(37,211,102,0.25)}
+    .hero-cta:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(37,211,102,0.35)}
+    .hero-cta svg{width:18px;height:18px}
+    .hero-trust-line{color:var(--text-secondary);font-size:.85rem;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}
+    .hero-trust-line span{display:flex;align-items:center;gap:6px}
+    .hero-trust-line svg{width:16px;height:16px;fill:var(--sage)}
 
-    body {
-      font-family: var(--ff-body);
-      color: var(--text-mid);
-      background: var(--paper);
-      font-size: 1rem;
-      line-height: 1.6;
-      padding-bottom: 80px; /* space for mobile sticky */
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+    /* PHONE BOT */
+    .phone-wrap{position:relative;display:flex;justify-content:center}
+    .phone-frame{width:300px;height:580px;background:#1a1a1a;border-radius:42px;padding:10px;box-shadow:var(--shadow-strong);position:relative}
+    .phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:130px;height:28px;background:#1a1a1a;border-radius:0 0 18px 18px;z-index:10}
+    .phone-screen{width:100%;height:100%;background:#111b21;border-radius:32px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+    .catalog-screen{position:absolute;inset:0;background:#0b141a;z-index:20;display:flex;flex-direction:column;animation:catIn .4s ease}
+    @keyframes catIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .catalog-screen-header{background:#1f2c34;padding:46px 14px 12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #2a3942}
+    .catalog-screen-title{color:#e9edef;font-size:15px;font-weight:700;flex:1}
+    .catalog-screen-back{color:#8696a0;font-size:20px;cursor:pointer}
+    .catalog-screen-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+    .catalog-screen-body::-webkit-scrollbar{width:4px}
+    .catalog-screen-body::-webkit-scrollbar-thumb{background:rgba(134,150,160,0.3);border-radius:2px}
+    .cat-product{background:#1f2c34;border:1px solid #2a3942;border-radius:14px;padding:12px;display:flex;gap:12px;align-items:center}
+    .cat-product-img{width:56px;height:56px;border-radius:12px;background:#2a3942;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;overflow:hidden}
+    .cat-product-img img{width:100%;height:100%;object-fit:cover}
+    .cat-product-info{flex:1;min-width:0}
+    .cat-product-name{color:#e9edef;font-size:13px;font-weight:700;margin-bottom:4px}
+    .cat-product-price{color:#25D366;font-size:14px;font-weight:800;margin-bottom:6px}
+    .cat-product-talles{display:flex;gap:5px;flex-wrap:wrap}
+    .cat-talle{background:#111b21;color:#8696a0;font-size:10px;font-weight:600;padding:4px 8px;border-radius:6px;border:1px solid #2a3942}
+    .cat-talle.active{background:#25D366;color:#fff;border-color:#25D366}
+    .cat-add{width:32px;height:32px;border-radius:50%;background:#25D366;color:#fff;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;flex-shrink:0}
+    .phone-header{background:#1f2c34;padding:42px 14px 12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #2a3942}
+    .phone-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#C4A574,#8B6914);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+    .phone-name{font-size:14px;font-weight:600;color:#e9edef}
+    .phone-status{font-size:11px;color:#25D366}
+    .phone-chat{flex:1;overflow:hidden;padding:14px;display:flex;flex-direction:column;gap:8px;background:linear-gradient(180deg,#0b141a,#0f1a20);position:relative}
+    .chat-msg{max-width:85%;padding:9px 12px;border-radius:14px;font-size:13px;line-height:1.45;opacity:0;transform:translateY(12px);animation:msgIn .4s ease forwards;position:relative}
+    .chat-msg.in{align-self:flex-start;background:#1f2c34;color:#e9edef;border-top-left-radius:4px}
+    .chat-msg.out{align-self:flex-end;background:#005c4b;color:#fff;border-top-right-radius:4px}
+    .chat-msg .time{font-size:9px;color:rgba(255,255,255,0.55);float:right;margin:4px 0 0 8px}
+    .chat-options{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;opacity:0;animation:msgIn .4s ease forwards}
+    .chat-opt{background:transparent;border:1px solid #25D366;color:#25D366;padding:5px 12px;border-radius:16px;font-size:11px;font-weight:500}
+    .typing{align-self:flex-start;background:#1f2c34;padding:10px 14px;border-radius:14px;border-top-left-radius:4px;display:flex;gap:4px;margin:4px 0;opacity:0;animation:msgIn .3s ease forwards}
+    .typing-dot{width:6px;height:6px;background:#8696a0;border-radius:50%;animation:typing 1.4s infinite}
+    .typing-dot:nth-child(2){animation-delay:.2s}
+    .typing-dot:nth-child(3){animation-delay:.4s}
+    @keyframes msgIn{to{opacity:1;transform:translateY(0)}}
+    @keyframes typing{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
 
-    h1,h2,h3,h4,h5,h6 {
-      font-family: var(--ff-head);
-      line-height: 1.12;
-      color: var(--text-dark);
-      letter-spacing: -0.01em;
-      font-weight: 600;
-      text-wrap: balance;
-    }
+    /* Tarjetas dentro del chat hero */
+    .chat-card{align-self:flex-start;background:#1f2c34;border:1px solid #2a3942;border-radius:14px;padding:12px;max-width:92%;opacity:0;animation:msgIn .4s ease forwards}
+    .chat-card-header{background:linear-gradient(135deg,#C4A574,#8B6914);border-radius:10px;padding:12px;text-align:center;margin-bottom:10px}
+    .chat-card-title{font-size:13px;font-weight:800;color:#fff}
+    .chat-card-sub{font-size:10px;color:rgba(255,255,255,0.85)}
+    .chat-product{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #2a3942}
+    .chat-product:last-child{border-bottom:none}
+    .chat-product-img{width:36px;height:36px;border-radius:8px;background:#2a3942;display:flex;align-items:center;justify-content:center;font-size:18px}
+    .chat-product-info{flex:1}
+    .chat-product-name{font-size:12px;font-weight:600;color:#e9edef}
+    .chat-product-price{font-size:11px;color:#25D366;font-weight:700}
+    .chat-card-btn{width:100%;background:#25D366;color:#fff;border:none;padding:10px;border-radius:10px;font-size:12px;font-weight:700;margin-top:10px;cursor:pointer}
+    .chat-cart{align-self:flex-start;background:#1f2c34;border:1px solid #2a3942;border-radius:14px;padding:14px;max-width:92%;opacity:0;animation:msgIn .4s ease forwards}
+    .chat-cart-title{font-size:13px;font-weight:700;color:#e9edef;margin-bottom:10px}
+    .chat-cart-item{display:flex;justify-content:space-between;font-size:12px;color:#e9edef;padding:4px 0}
+    .chat-cart-total{display:flex;justify-content:space-between;border-top:2px solid #25D366;margin-top:10px;padding-top:10px;font-size:14px;font-weight:800;color:#25D366}
+    .chat-pay-btn{width:100%;background:linear-gradient(135deg,#00a884,#0095d9);color:#fff;border:none;padding:12px;border-radius:10px;font-size:13px;font-weight:700;margin-top:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 
-    img { max-width: 100%; }
+    /* SECTIONS */
+    .sec{padding:90px 24px}
+    .ctr{max-width:1100px;margin:0 auto}
+    .tc{text-align:center}
+    .stag{display:inline-block;background:var(--sage-light);color:var(--sage);font-size:.72rem;font-weight:800;padding:6px 16px;border-radius:50px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.8px}
+    .stitle{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;margin-bottom:16px;color:var(--text)}
+    .ssub{color:var(--text-secondary);font-size:1.05rem;max-width:560px;line-height:1.75;margin-bottom:52px}
+    .tc .ssub{margin-left:auto;margin-right:auto}
 
-    a { text-decoration: none; }
+    /* PROBLEMA */
+    .sec-problem{background:var(--text);color:#fff}
+    .sec-problem .stitle{color:#fff}
+    .sec-problem .ssub{color:rgba(255,255,255,0.7)}
+    .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;text-align:left}
+    .problem-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-sm);padding:28px 24px;transition:background .2s}
+    .problem-card:hover{background:rgba(255,255,255,0.1)}
+    .problem-card svg{margin-bottom:14px;stroke:#fff}
+    .problem-card h3{font-size:1rem;font-weight:700;margin-bottom:8px;color:#fff}
+    .problem-card p{font-size:.88rem;color:rgba(255,255,255,0.75);line-height:1.65}
 
-    /* ===========================
-       ANNOUNCEMENT BAR
-    =========================== */
-    .ann-bar {
-      background: var(--free-green);
-      color: white;
-      padding: 10px 16px;
-      text-align: center;
-      font-family: var(--ff-head);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-    }
-    .ann-bar .ann-items {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .ann-bar .ann-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      white-space: nowrap;
-    }
-    .ann-bar .ann-item i { opacity: 0.85; }
+    /* DEMO */
+    .sec-demo{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .demo-anim-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto}
+    .demo-text h3{font-size:1.5rem;font-weight:800;margin-bottom:16px}
+    .demo-text p{color:var(--text-secondary);margin-bottom:24px;line-height:1.7}
+    .demo-steps{display:flex;flex-direction:column;gap:18px}
+    .demo-step{display:flex;gap:16px;align-items:flex-start}
+    .demo-step-num{width:40px;height:40px;border-radius:50%;background:var(--sage-light);color:var(--sage);display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-family:'Manrope',sans-serif}
+    .demo-step h4{font-size:1rem;font-weight:700;margin-bottom:4px}
+    .demo-step p{font-size:.88rem;color:var(--text-secondary);line-height:1.6}
 
-    /* ===========================
-       NAVBAR
-    =========================== */
-    .navbar {
-      background: var(--brand-dark);
-      padding: 14px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .navbar-brand {
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: white !important;
-      letter-spacing: -0.5px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .navbar-brand img {
-      width: 38px;
-      height: 38px;
-      border-radius: 9px;
-      object-fit: contain;
-      background: white;
-      padding: 2px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    }
-    .navbar-brand span { color: var(--brand-green); }
-    .navbar-breadcrumb {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.85rem;
-      font-family: var(--ff-body);
-    }
-    .navbar-breadcrumb strong {
-      color: var(--free-green);
-      font-weight: 700;
-    }
-    .btn-nav-back {
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.8);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
-      padding: 7px 16px;
-      font-family: var(--ff-body);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-nav-back:hover {
-      background: rgba(255,255,255,0.15);
-      color: white;
-    }
-    .navbar-toggler {
-      border: none;
-      color: white;
-      padding: 4px 8px;
-    }
-    .navbar-toggler:focus { box-shadow: none; }
-    .navbar-collapse { background: var(--brand-dark); }
+    /* SOLUTION */
+    .sol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .sol-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+    .sol-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-strong)}
+    .sol-ico{width:52px;height:52px;background:var(--sage-light);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+    .sol-ico svg{stroke:var(--sage)}
+    .sol-card h3{font-size:1.1rem;font-weight:800;margin-bottom:8px}
+    .sol-card p{font-size:.92rem;color:var(--text-secondary);line-height:1.65}
 
-    /* ===========================
-       HERO SECTION
-    =========================== */
-    .hero-particulares {
-      background: var(--brand-dark);
-      min-height: 560px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 80px 0;
-    }
-    .hero-particulares::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=50&auto=format') center/cover no-repeat;
-      opacity: 0.10;
-      filter: sepia(0.4) saturate(0.7);
-    }
-    .hero-particulares::after {
-      content: '';
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(156,74,46,0.18) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; z-index: 2; }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      background: transparent;
-      border: 1px solid rgba(255,253,248,0.28);
-      color: rgba(255,253,248,0.82);
-      font-family: var(--ff-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 7px 16px;
-      border-radius: 50px;
-      margin-bottom: 26px;
-    }
-    .hero-title {
-      font-family: var(--ff-head);
-      font-size: clamp(2.2rem, 5.4vw, 3.9rem);
-      font-weight: 600;
-      color: #fffdf8;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-    .hero-title .highlight {
-      color: var(--brand-blue2);
-      font-style: italic;
-      font-weight: 500;
-      position: relative;
-    }
-    .hero-subtitle {
-      font-size: 1.1rem;
-      color: rgba(255,253,248,0.74);
-      max-width: 580px;
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-    .btn-hero-free {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--free-green);
-      color: white;
-      padding: 16px 32px;
-      border-radius: var(--radius-md);
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s;
-      box-shadow: 0 8px 24px rgba(5,150,105,0.4);
-    }
-    .btn-hero-free:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(5,150,105,0.5);
-      background: #048a5c;
-      color: white;
-    }
-    .btn-hero-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: rgba(255,255,255,0.85);
-      padding: 14px 28px;
-      border-radius: var(--radius-md);
-      font-family: var(--ff-head);
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 2px solid rgba(255,255,255,0.25);
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-    .btn-hero-outline:hover {
-      border-color: rgba(255,255,255,0.6);
-      color: white;
-      background: rgba(255,255,255,0.07);
-    }
-    .hero-trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .hero-trust-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      color: rgba(255,255,255,0.65);
-      font-size: 0.85rem;
-    }
-    .hero-trust-item i { color: var(--brand-green); font-size: 0.9rem; }
+    /* BENEFICIOS */
+    .bene-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+    .bene-item{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px;box-shadow:var(--shadow)}
+    .bene-check{width:28px;height:28px;background:var(--sage-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .bene-check svg{stroke:var(--sage)}
+    .bene-item h4{font-size:1rem;font-weight:700;margin-bottom:4px}
+    .bene-item p{font-size:.88rem;color:var(--text-secondary);line-height:1.6}
 
-    /* GRATIS SEAL */
-    .gratis-seal {
-      width: 180px;
-      height: 180px;
-      background: var(--free-green);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      margin: 0 auto;
-      box-shadow: 0 0 0 8px rgba(16,185,129,0.15), 0 0 0 16px rgba(16,185,129,0.08);
-      animation: sealPulse 3s ease-in-out infinite;
-    }
-    @keyframes sealPulse {
-      0%, 100% { box-shadow: 0 0 0 8px rgba(16,185,129,0.15), 0 0 0 16px rgba(16,185,129,0.08); }
-      50% { box-shadow: 0 0 0 12px rgba(16,185,129,0.2), 0 0 0 24px rgba(16,185,129,0.06); }
-    }
-    .gratis-seal .seal-label {
-      font-family: var(--ff-head);
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .gratis-seal .seal-word {
-      font-family: var(--ff-head);
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: white;
-      line-height: 1;
-    }
-    .gratis-seal .seal-sub {
-      font-family: var(--ff-body);
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.75);
-      text-align: center;
-      max-width: 120px;
-    }
-    .gratis-seal::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      border: 2px dashed rgba(255,255,255,0.35);
-      animation: rotateDash 20s linear infinite;
-    }
-    @keyframes rotateDash {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    /* PEOPLE */
+    .people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+    .people-card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border)}
+    .people-img{height:320px;background:#e8e5df;overflow:hidden;position:relative}
+    .people-img img{width:100%;height:100%;object-fit:cover;object-position:top center}
+    .people-body{padding:22px}
+    .people-body h4{font-size:1.05rem;font-weight:800;margin-bottom:6px}
+    .people-body p{font-size:.88rem;color:var(--text-secondary);line-height:1.6}
+    @media(max-width:920px){.people-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.people-grid{grid-template-columns:1fr}}
 
-    /* ===========================
-       SECTION LABEL
-    =========================== */
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: transparent;
-      color: var(--brand-blue);
-      font-family: var(--ff-body);
-      font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 0;
-      border-radius: 0;
-      margin-bottom: 14px;
-    }
-    .section-label::before {
-      content: '';
-      width: 22px;
-      height: 1px;
-      background: currentColor;
-      display: inline-block;
-      opacity: 0.6;
-    }
-    .section-label.mine { background: transparent; color: var(--mine-gold); }
-    .section-label.blue { background: transparent; color: var(--brand-blue); }
+    /* DEMOS */
+    .demos-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+    .demo-card{width:260px;flex:1 1 260px;max-width:300px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:block;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+    .demo-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-strong)}
+    .demo-prev{height:150px;display:flex;align-items:center;justify-content:center;position:relative}
+    .demo-prev svg{stroke:#fff}
+    .demo-tag{position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);color:#fff;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:50px;border:1px solid rgba(255,255,255,0.25)}
+    .dp1{background:linear-gradient(135deg,#7C2D12,#EA580C)}
+    .dp2{background:linear-gradient(135deg,#4C1D95,#7C3AED)}
+    .dp3{background:linear-gradient(135deg,#1e3a5f,#2563EB)}
+    .dp4{background:linear-gradient(135deg,#1f1f1f,#374151)}
+    .dp5{background:linear-gradient(135deg,#1e3a5f,#0ea5e9)}
+    .dp6{background:linear-gradient(135deg,#3d2805,#f59e0b)}
+    .dp7{background:linear-gradient(135deg,#1e293b,#0ea5e9)}
+    .dp8{background:linear-gradient(135deg,#2d1b05,#d97706)}
+    .dp9{background:linear-gradient(135deg,#240e3d,#d946ef)}
+    .dp10{background:linear-gradient(135deg,#e0f2fe,#0ea5e9)}
+    .demo-body{padding:18px 20px}
+    .demo-rubro{font-size:.7rem;color:var(--sage);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+    .demo-body h3{font-size:1rem;font-weight:800;margin-bottom:6px}
+    .demo-body p{font-size:.84rem;color:var(--text-secondary);line-height:1.6;margin-bottom:12px}
+    .demo-feats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+    .df{background:var(--sage-light);color:var(--sage);font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px}
+    .demo-foot{display:flex;align-items:center;justify-content:space-between}
+    .demo-ver{background:var(--text);color:#fff;padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;gap:5px;transition:background .2s}
+    .demo-ver:hover{background:#1a1815}
+    .demo-lbl{font-size:.72rem;color:var(--text-secondary)}
 
-    /* ===========================
-       STATS STRIP
-    =========================== */
-    .stats-strip {
-      background: var(--brand-blue);
-      padding: 28px 0;
-    }
-    .stat-item {
-      text-align: center;
-      padding: 10px;
-    }
-    .stat-num {
-      font-family: var(--ff-head);
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--brand-green);
-      line-height: 1;
-      display: block;
-    }
-    .stat-desc {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.65);
-      font-weight: 500;
-    }
-    .stat-divider {
-      border-left: 1px solid rgba(255,255,255,0.12);
-      height: 60px;
-      margin: auto 0;
-    }
+    /* PAQUETES */
+    .sec-packs{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .packs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;align-items:start}
+    .pack{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px;box-shadow:var(--shadow);transition:transform .2s}
+    .pack:hover{transform:translateY(-4px)}
+    .pack.pop{border:2px solid var(--sage);position:relative}
+    .pop-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--sage);color:#fff;font-size:.7rem;font-weight:800;padding:5px 16px;border-radius:50px;white-space:nowrap}
+    .pack-ico{font-size:1.8rem;margin-bottom:14px}
+    .pack-name{font-size:1.15rem;font-weight:800;margin-bottom:8px}
+    .pack-desc{font-size:.9rem;color:var(--text-secondary);margin-bottom:24px;line-height:1.55}
+    .pack-feats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+    .pack-feats li{font-size:.88rem;color:var(--text-secondary);display:flex;align-items:flex-start;gap:8px}
+    .pack-feats li svg{flex-shrink:0;stroke:var(--sage);margin-top:3px}
+    .btn-pack{width:100%;background:var(--text);color:#fff;border:none;padding:14px;border-radius:50px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Manrope',sans-serif;transition:background .2s;text-decoration:none;display:flex;align-items:center;justify-content:center}
+    .btn-pack:hover{background:#1a1815}
+    .btn-pack.p{background:var(--accent)}
+    .btn-pack.p:hover{background:var(--accent-dark)}
 
-    /* ===========================
-       PAIN SECTION
-    =========================== */
-    .pain-section {
-      background: var(--brand-dark);
-      padding: 80px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .pain-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--brand-blue);
-    }
-    .pain-title {
-      font-family: var(--ff-head);
-      font-size: clamp(1.6rem, 3vw, 2.5rem);
-      font-weight: 700;
-      color: white;
-      margin-bottom: 10px;
-    }
-    .pain-subtitle { color: rgba(255,255,255,0.55); font-size: 1rem; margin-bottom: 50px; }
-    .pain-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    @media (max-width: 768px) { .pain-grid { grid-template-columns: 1fr; } }
-    .pain-before {
-      background: #1e1e2e;
-      padding: 36px;
-      border-right: 1px solid rgba(255,255,255,0.06);
-    }
-    .pain-after {
-      background: #0d2818;
-      padding: 36px;
-    }
-    .pain-col-title {
-      font-family: var(--ff-head);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .pain-col-title.bad { color: var(--pain-red); }
-    .pain-col-title.good { color: var(--free-green); }
-    .pain-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 18px;
-      font-size: 0.93rem;
-      line-height: 1.5;
-    }
-    .pain-item:last-child { margin-bottom: 0; }
-    .pain-item i { margin-top: 3px; flex-shrink: 0; font-size: 1rem; }
-    .pain-item.bad { color: rgba(255,255,255,0.55); }
-    .pain-item.bad i { color: var(--pain-red); }
-    .pain-item.good { color: rgba(255,255,255,0.85); }
-    .pain-item.good i { color: var(--free-green); }
-    .pain-platform-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      margin-bottom: 16px;
-    }
-    .tag-instagram { background: rgba(220,80,128,0.2); color: #f472b6; }
-    .tag-inversa { background: rgba(16,185,129,0.2); color: var(--brand-green); }
+    /* CTA SECTION */
+    .sec-cta{background:var(--sage);text-align:center}
+    .sec-cta .stitle{color:#fff}
+    .sec-cta p{color:rgba(255,255,255,0.9);font-size:1.1rem;max-width:520px;margin:0 auto 32px;line-height:1.75}
+    .btn-white{background:#fff;color:var(--sage);text-decoration:none;padding:16px 32px;border-radius:50px;font-weight:800;font-size:1rem;display:inline-flex;align-items:center;gap:8px;transition:transform .2s;box-shadow:0 4px 20px rgba(0,0,0,0.1)}
+    .btn-white:hover{transform:translateY(-2px)}
 
-    /* ===========================
-       HOW IT WORKS
-    =========================== */
-    .howitworks { padding: 80px 0; background: var(--surface); }
-    .step-card {
-      background: white;
-      border-radius: var(--radius-md);
-      padding: 36px 28px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border);
-      height: 100%;
-      position: relative;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .step-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-    }
-    .step-number {
-      width: 56px;
-      height: 56px;
-      background: var(--free-light);
-      color: var(--free-green);
-      border-radius: 50%;
-      font-family: var(--ff-head);
-      font-size: 1.4rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-    }
-    .step-card h5 {
-      font-family: var(--ff-head);
-      font-weight: 700;
-      margin-bottom: 10px;
-      font-size: 1.05rem;
-      color: var(--text-dark);
-    }
-    .step-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin: 0;
-    }
-    .step-card .step-time {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--free-green);
-      background: var(--free-light);
-      padding: 3px 12px;
-      border-radius: 50px;
-    }
-    .step-connector {
-      position: absolute;
-      right: -20px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      color: var(--brand-green);
-      z-index: 10;
-    }
-    @media (max-width: 768px) { .step-connector { display: none; } }
+    /* FOOTER */
+    footer{background:var(--text);border-top:1px solid var(--border);text-align:center;padding:48px 24px;color:#fff}
+    .f-logo{font-size:1.25rem;font-weight:800;margin-bottom:10px;letter-spacing:-.5px;color:#fff}
+    .f-logo span{color:var(--sage)}
+    footer p{font-size:.85rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:16px}
+    .f-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+    .f-links a{color:rgba(255,255,255,0.65);font-size:.85rem;transition:color .2s}
+    .f-links a:hover{color:#fff}
+    .f-copy{font-size:.75rem;color:rgba(255,255,255,0.45);border-top:1px solid rgba(255,255,255,0.1);padding-top:16px}
 
-    /* ===========================
-       CATEGORIES
-    =========================== */
-    .categories-section { padding: 80px 0; background: white; }
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 992px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 576px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
-    .cat-card {
-      background: var(--surface);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-    .cat-card:hover {
-      border-color: var(--brand-blue);
-      background: #f4e9e2;
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-    .cat-card.mining {
-      border-color: rgba(138,109,47,0.3);
-      background: var(--mine-light);
-    }
-    .cat-card.mining:hover {
-      border-color: var(--mine-gold);
-      background: #e6ddc4;
-    }
-    .cat-icon-wrap {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin: 0 auto 14px;
-    }
-    .cat-icon-wrap.blue { background: #f0e2da; color: var(--brand-blue); }
-    .cat-icon-wrap.gold { background: var(--mine-light); color: var(--mine-gold); }
-    .cat-icon-wrap.green { background: var(--free-light); color: var(--free-green); }
-    .cat-card h6 {
-      font-family: var(--ff-head);
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin: 0;
-    }
-    .cat-card .cat-count {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    .cat-card .cat-badge {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      font-size: 0.65rem;
-      font-weight: 700;
-      background: var(--mine-gold);
-      color: white;
-      padding: 2px 8px;
-      border-radius: 50px;
-    }
+    /* WA FLOAT */
+    .wa-f{position:fixed;bottom:28px;right:22px;z-index:999;background:var(--accent);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform .2s}
+    .wa-f:hover{transform:scale(1.1)}
 
-    /* MINING CALLOUT */
-    .mining-callout {
-      background: var(--mine-dark);
-      border: 1px solid rgba(255,253,248,0.08);
-      border-radius: var(--radius-lg);
-      padding: 40px 48px;
-      margin-top: 40px;
-      position: relative;
-      overflow: hidden;
-    }
-    .mining-callout::before {
-      content: '';
-      position: absolute;
-      right: -40px;
-      top: -40px;
-      width: 220px;
-      height: 220px;
-      border: 1px solid rgba(255,253,248,0.10);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .mining-callout h3 {
-      font-family: var(--ff-head);
-      font-weight: 600;
-      color: #fffdf8;
-      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-      margin-bottom: 10px;
-    }
-    .mining-callout p {
-      color: rgba(255,255,255,0.82);
-      font-size: 0.95rem;
-      margin: 0;
-      max-width: 600px;
-    }
-    .mining-callout .badge-exclusive {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      color: white;
-      font-family: var(--ff-head);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 14px;
-      border-radius: 50px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
+    /* VIDEO DEMO */
+    .video-demo{background:var(--text);border-radius:var(--radius);padding:40px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+    .video-demo h3{color:#fff;font-size:1.4rem;font-weight:800}
+    .video-demo p{color:rgba(255,255,255,0.7);font-size:.95rem;max-width:500px}
+    .video-thumb{width:100%;max-width:560px;aspect-ratio:16/9;background:#111b21;border-radius:var(--radius-sm);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid #2a3942}
+    .video-play{width:72px;height:72px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s;cursor:pointer}
+    .video-play:hover{transform:scale(1.1)}
+    .video-play svg{fill:#fff;margin-left:4px}
 
-    /* ===========================
-       SAMPLE LISTINGS
-    =========================== */
-    .sample-listings { padding: 80px 0; background: var(--surface); }
-    .listing-card {
-      background: white;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border);
-      transition: all 0.3s;
-    }
-    .listing-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-    }
-    .listing-img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      height: auto;
-      object-fit: cover;
-    }
-    .listing-body { padding: 20px; }
-    .listing-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .listing-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      white-space: nowrap;
-    }
-    .listing-tag.particular {
-      background: var(--free-light);
-      color: var(--free-green);
-    }
-    .listing-tag.mining-tag {
-      background: var(--mine-light);
-      color: var(--mine-gold);
-    }
-    .listing-title {
-      font-family: var(--ff-head);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 6px;
-    }
-    .listing-location {
-      font-size: 0.83rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-    .listing-location i { margin-right: 5px; }
-    .listing-specs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 14px;
-      margin-bottom: 14px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-    .listing-specs span {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-mid);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .listing-specs i { color: var(--brand-blue); font-size: 0.8rem; }
-    .listing-price {
-      font-family: var(--ff-head);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      margin-bottom: 16px;
-    }
-    .listing-price .currency {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-    .btn-listing-contact {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 12px;
-      background: var(--brand-blue);
-      color: white;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-listing-contact:hover { background: var(--brand-blue2); }
-    .listing-demo-badge {
-      text-align: center;
-      margin-top: 8px;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    /* ===========================
-       WHY US SECTION
-    =========================== */
-    .whyus-section { padding: 80px 0; background: white; }
-    .benefit-card {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 28px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      background: var(--surface);
-      height: 100%;
-      transition: all 0.3s;
-    }
-    .benefit-card:hover {
-      border-color: var(--free-green);
-      background: #f0fdf9;
-      box-shadow: var(--shadow-sm);
-    }
-    .benefit-icon {
-      width: 52px;
-      height: 52px;
-      background: var(--free-light);
-      color: var(--free-green);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-    .benefit-card.mine .benefit-icon {
-      background: var(--mine-light);
-      color: var(--mine-gold);
-    }
-    .benefit-card.blue .benefit-icon {
-      background: #f0e2da;
-      color: var(--brand-blue);
-    }
-    .benefit-content h5 {
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 0.97rem;
-      color: var(--text-dark);
-      margin-bottom: 6px;
-    }
-    .benefit-content p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin: 0;
-      line-height: 1.6;
-    }
-
-    /* ===========================
-       TESTIMONIALS (mini)
-    =========================== */
-    .testimonials-mini { padding: 60px 0; background: var(--brand-dark); }
-    .testi-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      height: 100%;
-    }
-    .testi-stars { color: #f59e0b; font-size: 0.85rem; margin-bottom: 12px; }
-    .testi-text {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.93rem;
-      line-height: 1.7;
-      margin-bottom: 18px;
-      font-style: italic;
-    }
-    .testi-author { font-size: 0.82rem; font-weight: 700; color: var(--brand-green); }
-    .testi-role { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
-
-    /* ===========================
-       PUBLICATION FORM
-    =========================== */
-    .form-section {
-      padding: 80px 0;
-      background: var(--brand-dark);
-      position: relative;
-      overflow: hidden;
-    }
-    .form-section::before {
-      content: '';
-      position: absolute;
-      bottom: -100px;
-      left: -100px;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
-    }
-    .form-card {
-      background: white;
-      border-radius: var(--radius-lg);
-      padding: 48px;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      z-index: 2;
-    }
-    @media (max-width: 576px) { .form-card { padding: 28px 20px; } }
-    .form-section-header {
-      color: white;
-      margin-bottom: 40px;
-    }
-    .form-section-header h2 {
-      font-family: var(--ff-head);
-      font-size: clamp(1.6rem, 3vw, 2.5rem);
-      font-weight: 700;
-      color: white;
-      margin-bottom: 10px;
-    }
-    .form-section-header p { color: rgba(255,255,255,0.65); font-size: 1rem; }
-    /* Form inputs */
-    .form-label {
-      font-family: var(--ff-head);
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text-mid);
-      margin-bottom: 6px;
-    }
-    .form-control, .form-select {
-      border: 2px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      font-family: var(--ff-body);
-      font-size: 1rem;
-      transition: border-color 0.2s;
-    }
-    .form-control:focus, .form-select:focus {
-      border-color: var(--free-green);
-      box-shadow: 0 0 0 3px rgba(5,150,105,0.12);
-      outline: none;
-    }
-
-    /* ===========================
-       FAQ
-    =========================== */
-    .faq-section { padding: 80px 0; background: var(--surface); }
-    .faq-section .accordion-item {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm) !important;
-      margin-bottom: 10px;
-      overflow: hidden;
-    }
-    .faq-section .accordion-button {
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 0.93rem;
-      color: var(--text-dark);
-      background: white;
-      padding: 18px 22px;
-    }
-    .faq-section .accordion-button:not(.collapsed) {
-      color: var(--free-green);
-      background: var(--free-light);
-      box-shadow: none;
-    }
-    .faq-section .accordion-button:focus { box-shadow: none; }
-    .faq-section .accordion-button::after {
-      filter: hue-rotate(120deg) saturate(1.5);
-    }
-    .faq-section .accordion-body {
-      padding: 16px 22px 22px;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      background: white;
-    }
-
-    /* ===========================
-       FOOTER
-    =========================== */
-    .footer {
-      background: var(--brand-dark);
-      padding: 48px 0 24px;
-      color: rgba(255,255,255,0.55);
-    }
-    .footer-brand {
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: white;
-      margin-bottom: 6px;
-    }
-    .footer-brand span { color: var(--brand-green); }
-    .footer-sub { font-size: 0.82rem; margin-bottom: 20px; }
-    .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.65);
-      font-size: 0.9rem;
-      margin-right: 8px;
-      transition: all 0.2s;
-    }
-    .footer-social a:hover { background: var(--brand-green); color: white; }
-    .footer-link {
-      display: block;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.85rem;
-      margin-bottom: 8px;
-      transition: color 0.2s;
-    }
-    .footer-link:hover { color: var(--brand-green); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 40px;
-      padding-top: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.8rem;
-    }
-    .footer-bottom .gratis-footer {
-      background: var(--free-green);
-      color: white;
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 0.72rem;
-      padding: 4px 14px;
-      border-radius: 50px;
-    }
-
-    /* ===========================
-       FLOATING ELEMENTS
-    =========================== */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 100px;
-      right: 24px;
-      width: 52px;
-      height: 52px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      z-index: 900;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-      transition: all 0.25s;
-    }
-    .whatsapp-float:hover { transform: scale(1.1); }
-
-    /* ===========================
-       MOBILE STICKY BAR
-    =========================== */
-    .mobile-sticky {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: white;
-      border-top: 1px solid var(--border);
-      padding: 10px 16px;
-      display: flex;
-      gap: 10px;
-      z-index: 1000;
-      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
-    }
-    .mobile-sticky-btn {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      padding: 13px 8px;
-      border-radius: var(--radius-sm);
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 0.88rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    .mobile-sticky-btn.primary {
-      background: var(--free-green);
-      color: white;
-    }
-    .mobile-sticky-btn.secondary {
-      background: var(--brand-dark);
-      color: white;
-    }
-    @media (min-width: 992px) {
-      .mobile-sticky { display: none !important; }
-    }
-
-    /* ===========================
-       EXIT POPUP
-    =========================== */
-    .exit-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.65);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      backdrop-filter: blur(4px);
-    }
-    .exit-card {
-      background: white;
-      border-radius: var(--radius-lg);
-      padding: 44px;
-      max-width: 460px;
-      width: 100%;
-      position: relative;
-      animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(0.85) translateY(20px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .exit-close {
-      position: absolute;
-      top: 14px; right: 14px;
-      background: none;
-      border: none;
-      font-size: 1.3rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .exit-close:hover { background: var(--surface); }
-    .exit-card h4 {
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
-    .exit-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
-    .exit-dismiss {
-      text-align: center;
-      margin-top: 12px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      cursor: pointer;
-    }
-    .exit-dismiss:hover { color: var(--pain-red); }
-
-    /* ===========================
-       UTILITIES
-    =========================== */
-    .text-green { color: var(--free-green); }
-    .text-gold { color: var(--mine-gold); }
-    .text-brand { color: var(--brand-blue); }
-    .fw-800 { font-weight: 700; }
-    .section-title {
-      font-family: var(--ff-head);
-      font-size: clamp(1.8rem, 3.4vw, 2.7rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--text-dark);
-      margin-bottom: 14px;
-    }
-    .section-subtitle {
-      color: var(--text-mid);
-      font-size: 1.05rem;
-      line-height: 1.65;
-      max-width: 60ch;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 50px;
-    }
-    .hidden { display: none !important; }
-
-    /* RESPONSIVE */
-    @media (max-width: 992px) {
-      .gratis-seal { width: 140px; height: 140px; }
-      .gratis-seal .seal-word { font-size: 2.2rem; }
-    }
-    @media (max-width: 768px) {
-      body { padding-bottom: 90px; }
-      .form-card { padding: 28px 20px; }
-      .pain-before, .pain-after { padding: 24px 20px; }
-      .hero-particulares { padding: 60px 0; }
-      .mining-callout { padding: 28px 24px; }
-      .gratis-seal { width: 120px; height: 120px; margin-bottom: 30px; }
-      .gratis-seal .seal-word { font-size: 1.8rem; }
-      .whatsapp-float { display: none; }
-    }
-
-    /* ===========================
-       CARRUSEL DE FOTOS
-    =========================== */
-    .listing-carousel {
-      position: relative;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background: #e5e7eb;
-      border-radius: var(--radius-md) var(--radius-md) 0 0;
-    }
-    .carousel-slide {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-    .carousel-slide.active { opacity: 1; pointer-events: auto; }
-    .car-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.42);
-      color: white;
-      border: none;
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.15rem;
-      display: flex; align-items: center; justify-content: center;
-      z-index: 5;
-      transition: background 0.2s;
-      line-height: 1;
-    }
-    .car-btn:hover { background: rgba(0,0,0,0.72); }
-    .car-prev { left: 8px; }
-    .car-next { right: 8px; }
-    .car-dots {
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex; gap: 4px; z-index: 5;
-    }
-    .car-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-    .car-dot.active { background: white; width: 16px; border-radius: 3px; }
-
-    /* ===========================
-       SECCIÓN AVISOS REALES
-    =========================== */
-    .real-listings-section { padding: 80px 0; background: white; }
-    .filter-bar-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
-    .listings-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 10px;
-    }
-    .listings-toolbar .filter-bar-wrap { margin-bottom: 0; flex: 1 1 auto; }
-    .listings-toolbar-right { display: flex; flex-wrap: wrap; gap: 8px; flex-shrink: 0; }
-    .listings-select {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      color: var(--text-mid);
-      padding: 7px 14px;
-      border-radius: 50px;
-      font-family: var(--ff-head);
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .listings-select:focus { outline: none; border-color: var(--brand-blue); }
-    .listings-count { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
-    .filter-chip {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      color: var(--text-mid);
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-family: var(--ff-head);
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-chip:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
-    .filter-chip.active { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
-    .listings-state {
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .listings-state i { font-size: 2.8rem; color: #cbd5e1; margin-bottom: 16px; display: block; }
-    .listings-placeholder {
-      background: var(--surface);
-      border: 2px dashed var(--border);
-      border-radius: var(--radius-md);
-      text-align: center;
-      padding: 48px 24px;
-    }
-    .listings-placeholder i { font-size: 2.4rem; color: #94a3b8; margin-bottom: 14px; display: block; }
-    .listings-count-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--free-light);
-      color: var(--free-green);
-      font-family: var(--ff-head);
-      font-weight: 700;
-      font-size: 0.82rem;
-      padding: 4px 14px;
-      border-radius: 50px;
-      margin-bottom: 24px;
+    @media(max-width:920px){
+      .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center}
+      .hero-sub{margin-left:auto;margin-right:auto}
+      .phone-frame{margin:0 auto}
+      .demo-anim-grid{grid-template-columns:1fr;gap:40px}
+    }
+    @media(max-width:600px){
+      .sec{padding:64px 20px}
+      nav{padding:12px 18px}
+      .phone-frame{width:260px;height:500px}
+      .video-demo{padding:24px}
     }
   </style>
 </head>
 <body>
 
-<!-- ===========================
-     ANNOUNCEMENT BAR
-=========================== -->
-<div class="ann-bar">
-  <div class="ann-items">
-    <div class="ann-item"><i class="fas fa-check-circle"></i> 100% GRATUITO — sin costos ocultos</div>
-    <div class="ann-item d-none d-md-flex"><i class="fas fa-bolt"></i> Tu aviso publicado al instante</div>
-    <div class="ann-item"><i class="fas fa-star"></i> Solo para particulares de San Juan</div>
-  </div>
-</div>
-
-<!-- ===========================
-     NAVBAR
-=========================== -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="assets/logo-sjpm.png" alt="" width="38" height="38">
-      <span>SAN JUAN<span> PROPIEDADES & MINERÍA</span></span>
-    </a>
-    <div class="d-none d-md-flex align-items-center ms-3">
-      <span class="navbar-breadcrumb">/ <strong>Particulares</strong></span>
-    </div>
-    <div class="ms-auto d-flex align-items-center gap-3">
-      <a href="index.html" class="btn-nav-back d-none d-md-inline-block">
-        <i class="fas fa-arrow-left me-1"></i> Sitio principal
-      </a>
-      <a href="publicar.html?src=inicio" class="btn-hero-free" style="padding: 10px 22px; font-size: 0.88rem;">
-        <i class="fas fa-plus-circle"></i> Publicar gratis
-      </a>
-    </div>
-  </div>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-text">Moviltec<span>Digital</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#rubros">Rubros</a></li>
+    <li><a href="#solucion">Cómo funciona</a></li>
+    <li><a href="#planes">Planes</a></li>
+  </ul>
+  <a href="https://wa.me/5492645304372?text=Hola!%20Vi%20la%20p%C3%A1gina%20y%20quiero%20info%20sobre%20el%20sistema%20de%20ventas" class="nav-cta" target="_blank">Quiero mi sistema</a>
 </nav>
 
-<!-- ===========================
-     HERO
-=========================== -->
-<section class="hero-particulares">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-7">
-        <div class="hero-content">
-          <div class="hero-badge">
-            San Juan · Propiedades y Minería
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge">Sistema activo en Argentina</div>
+      <h1>Tu negocio ya tiene<br>clientes.<br>Le faltan <em>respuestas</em>.</h1>
+      <p class="hero-sub">Un vendedor automático en WhatsApp que atiende, muestra tu catálogo y cierra ventas con MercadoPago. Las 24hs, los 7 días de la semana.</p>
+      <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20automatizar%20mis%20ventas" class="hero-cta" target="_blank">
+        <span>Quiero vender automático</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="hero-trust-line">
+        <span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Setup en 48hs</span>
+        <span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Sin costo inicial</span>
+        <span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Garantía 30 días</span>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen" id="heroPhoneScreen">
+          <div class="phone-header">
+            <div class="phone-avatar">SR</div>
+            <div>
+              <div class="phone-name">MoviltecDigital Studio</div>
+              <div class="phone-status">● En línea</div>
+            </div>
           </div>
-          <h1 class="hero-title">
-            Tu aviso en Instagram<br>
-            dura <span class="highlight">24 horas.</span><br>
-            El nuestro dura hasta<br>
-            que <span class="highlight">vendés.</span>
-          </h1>
-          <p class="hero-subtitle">
-            Publicá tu propiedad, equipo minero o herramienta en el único lugar de San Juan donde los particulares aparecen organizados, con ficha completa y visibles en Google. Sin pagar nada. Nunca.
-          </p>
-          <div class="hero-ctas">
-            <a href="publicar.html?src=inicio" class="btn-hero-free">
-              <i class="fas fa-plus-circle"></i> Publicar mi aviso gratis
-            </a>
-            <a href="#avisos-publicados" class="btn-hero-outline">
-              <i class="fas fa-th-large"></i> Ver avisos publicados
-            </a>
-          </div>
-          <div class="hero-trust">
-            <div class="hero-trust-item"><i class="fas fa-check-circle"></i> Sin registro complicado</div>
-            <div class="hero-trust-item"><i class="fas fa-check-circle"></i> Tus fotos y datos completos</div>
-            <div class="hero-trust-item"><i class="fas fa-check-circle"></i> Contacto directo por WhatsApp</div>
-            <div class="hero-trust-item"><i class="fas fa-check-circle"></i> Aparecés en Google</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-5 text-center">
-        <div class="gratis-seal">
-          <span class="seal-label">siempre</span>
-          <span class="seal-word">GRATIS</span>
-          <span class="seal-sub">Sin comisión ni intermediarios</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===========================
-     STATS STRIP
-=========================== -->
-<div class="stats-strip">
-  <div class="container">
-    <div class="row g-0 align-items-center">
-      <div class="col-6 col-md-3">
-        <div class="stat-item">
-          <span class="stat-num" data-counter="0" data-target="0">Gratis</span>
-          <span class="stat-desc">Siempre y para siempre</span>
-        </div>
-      </div>
-      <div class="col-md-auto d-none d-md-block"><div class="stat-divider"></div></div>
-      <div class="col-6 col-md-3">
-        <div class="stat-item">
-          <span class="stat-num"><span id="cnt1">0</span>hs</span>
-          <span class="stat-desc">Tu aviso publicado en menos de</span>
-        </div>
-      </div>
-      <div class="col-md-auto d-none d-md-block"><div class="stat-divider"></div></div>
-      <div class="col-6 col-md-3">
-        <div class="stat-item">
-          <span class="stat-num"><span id="cnt2">0</span></span>
-          <span class="stat-desc">Categorías para publicar</span>
-        </div>
-      </div>
-      <div class="col-md-auto d-none d-md-block"><div class="stat-divider"></div></div>
-      <div class="col-6 col-md-3">
-        <div class="stat-item">
-          <span class="stat-num"><span id="cnt3">0</span>%</span>
-          <span class="stat-desc">Sin comisión al vender</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===========================
-     PAIN SECTION
-=========================== -->
-<section class="pain-section">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="pain-title">¿Seguís publicando en Instagram?</h2>
-      <p class="pain-subtitle">Mirá la diferencia entre lo que tenés y lo que podrías tener. Gratis.</p>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-before">
-        <div class="pain-platform-tag tag-instagram">
-          <i class="fab fa-instagram me-1"></i> Instagram / Facebook
-        </div>
-        <div class="pain-col-title bad">
-          <i class="fas fa-times-circle me-2"></i> Lo que te pasa ahora
-        </div>
-        <div class="pain-item bad">
-          <i class="fas fa-times-circle"></i>
-          <span>Tu publicación se pierde en el feed en <strong>24 horas</strong> y nadie la vuelve a ver</span>
-        </div>
-        <div class="pain-item bad">
-          <i class="fas fa-times-circle"></i>
-          <span>Solo la ven tus <strong>seguidores</strong>. Los compradores serios no están ahí</span>
-        </div>
-        <div class="pain-item bad">
-          <i class="fas fa-times-circle"></i>
-          <span>Sin categorías ni organización. Tu propiedad <strong>compite con fotos de comida</strong></span>
-        </div>
-        <div class="pain-item bad">
-          <i class="fas fa-times-circle"></i>
-          <span>Comentarios mezclados, DMs perdidos. El interesado <strong>no sabe cómo contactarte</strong> bien</span>
-        </div>
-        <div class="pain-item bad">
-          <i class="fas fa-times-circle"></i>
-          <span><strong>No aparecés en Google.</strong> Si alguien busca "casa en alquiler San Juan" vos no existís</span>
-        </div>
-        <div class="pain-item bad">
-          <i class="fas fa-times-circle"></i>
-          <span>Tu aviso parece <strong>poco profesional</strong> y genera desconfianza en el comprador</span>
-        </div>
-      </div>
-      <div class="pain-after">
-        <div class="pain-platform-tag tag-inversa">
-          <i class="fas fa-check-circle me-1"></i> San Juan Propiedades & Minería — Particulares
-        </div>
-        <div class="pain-col-title good">
-          <i class="fas fa-check-circle me-2"></i> Lo que obtenés acá
-        </div>
-        <div class="pain-item good">
-          <i class="fas fa-check-circle"></i>
-          <span>Tu aviso <strong>sin fecha de vencimiento</strong>. Visible hasta que vendés o te avisamos</span>
-        </div>
-        <div class="pain-item good">
-          <i class="fas fa-check-circle"></i>
-          <span>Lo ve <strong>cualquiera que busca en internet</strong> o en Google lo que vos tenés</span>
-        </div>
-        <div class="pain-item good">
-          <i class="fas fa-check-circle"></i>
-          <span>Organizado en <strong>categorías claras</strong>: propiedades, equipos mineros, vehículos y más</span>
-        </div>
-        <div class="pain-item good">
-          <i class="fas fa-check-circle"></i>
-          <span>El comprador te contacta <strong>directo por WhatsApp</strong> con toda la info lista</span>
-        </div>
-        <div class="pain-item good">
-          <i class="fas fa-check-circle"></i>
-          <span>Tu aviso <strong>aparece en Google</strong> cuando buscan lo que vos tenés en San Juan</span>
-        </div>
-        <div class="pain-item good">
-          <i class="fas fa-check-circle"></i>
-          <span>Ficha <strong>profesional y completa</strong>: fotos, descripción, precio y contacto organizado</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===========================
-     HOW IT WORKS
-=========================== -->
-<section class="howitworks">
-  <div class="container">
-    <div class="text-center mb-5">
-      <span class="section-label">Simple y rápido</span>
-      <h2 class="section-title">¿Cómo funciona?</h2>
-      <p class="section-subtitle">Publicar tarda menos de 5 minutos. No necesitás cuenta, ni tarjeta, ni nada.</p>
-    </div>
-    <div class="row g-4 position-relative">
-      <div class="col-md-4 position-relative">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h5>Completás el formulario</h5>
-          <p>Tu nombre, WhatsApp, categoría, descripción y hasta 3 fotos de lo que querés vender o alquilar. Todo desde tu celular.</p>
-          <span class="step-time"><i class="fas fa-clock me-1"></i> 5 minutos</span>
-        </div>
-        <div class="step-connector d-none d-md-flex">→</div>
-      </div>
-      <div class="col-md-4 position-relative">
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h5>Tu aviso aparece al instante</h5>
-          <p>Una vez que completás el formulario, tu aviso se publica automáticamente en el sitio y ya puede ser visto por los interesados.</p>
-          <span class="step-time"><i class="fas fa-bolt me-1"></i> Publicación inmediata</span>
-        </div>
-        <div class="step-connector d-none d-md-flex">→</div>
-      </div>
-      <div class="col-md-4">
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h5>Te contactan directamente</h5>
-          <p>Los interesados te escriben por WhatsApp con toda la información ya vista. Vos decidís con quién avanzar.</p>
-          <span class="step-time"><i class="fas fa-star me-1"></i> Sin intermediarios</span>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-4">
-      <a href="publicar.html?src=inicio" class="btn-hero-free" style="display: inline-flex;">
-        <i class="fas fa-plus-circle"></i> Empezar ahora — es gratis
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===========================
-     CATEGORIES
-=========================== -->
-<section class="categories-section" id="avisos">
-  <div class="container">
-    <div class="text-center mb-5">
-      <span class="section-label">Todas las categorías</span>
-      <h2 class="section-title">¿Qué podés publicar?</h2>
-      <p class="section-subtitle">Dos mundos en una sola plataforma. Propiedades y sector minero, juntos por primera vez en San Juan.</p>
-    </div>
-
-    <div class="row g-2 mb-3">
-      <div class="col-12"><p class="fw-700 mb-2" style="font-family: var(--ff-head); color: var(--brand-blue); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fas fa-home me-2"></i>Propiedades e inmuebles</p></div>
-    </div>
-    <div class="cat-grid mb-5">
-      <a href="publicar.html?src=inicio&cat=Casas" class="cat-card">
-        <div class="cat-icon-wrap blue"><i class="fas fa-home"></i></div>
-        <h6>Casas</h6>
-        <span class="cat-count">Venta · Alquiler</span>
-      </a>
-      <a href="publicar.html?src=inicio&cat=Departamentos" class="cat-card">
-        <div class="cat-icon-wrap blue"><i class="fas fa-building"></i></div>
-        <h6>Departamentos</h6>
-        <span class="cat-count">Venta · Alquiler</span>
-      </a>
-      <a href="publicar.html?src=inicio&cat=Terrenos" class="cat-card">
-        <div class="cat-icon-wrap green"><i class="fas fa-map"></i></div>
-        <h6>Terrenos</h6>
-        <span class="cat-count">Venta · Subdivisión</span>
-      </a>
-      <a href="publicar.html?src=inicio&cat=Galpones%20y%20Dep%C3%B3sitos" class="cat-card">
-        <div class="cat-icon-wrap blue"><i class="fas fa-warehouse"></i></div>
-        <h6>Galpones y depósitos</h6>
-        <span class="cat-count">Venta · Alquiler</span>
-      </a>
-    </div>
-
-    <div class="row g-2 mb-3">
-      <div class="col-12"><p class="fw-700 mb-2" style="font-family: var(--ff-head); color: var(--mine-gold); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fas fa-hammer me-2"></i>Sector minero — exclusivo San Juan</p></div>
-    </div>
-    <div class="cat-grid">
-      <a href="publicar.html?src=inicio&cat=Equipos%20y%20Maquinaria%20Minera" class="cat-card mining">
-        <div class="cat-badge">ÚNICO</div>
-        <div class="cat-icon-wrap gold"><i class="fas fa-cogs"></i></div>
-        <h6>Equipos y maquinaria</h6>
-        <span class="cat-count">Venta · Alquiler</span>
-      </a>
-      <a href="publicar.html?src=inicio&cat=Herramientas%20Mineras" class="cat-card mining">
-        <div class="cat-badge">ÚNICO</div>
-        <div class="cat-icon-wrap gold"><i class="fas fa-wrench"></i></div>
-        <h6>Herramientas especiales</h6>
-        <span class="cat-count">Venta · Alquiler</span>
-      </a>
-      <a href="publicar.html?src=inicio&cat=Veh%C3%ADculos%20y%20Log%C3%ADstica%20Minera" class="cat-card mining">
-        <div class="cat-badge">ÚNICO</div>
-        <div class="cat-icon-wrap gold"><i class="fas fa-truck"></i></div>
-        <h6>Vehículos y logística</h6>
-        <span class="cat-count">Camiones · 4×4</span>
-      </a>
-      <a href="publicar.html?src=inicio&cat=Insumos%20y%20Materiales%20Mineros" class="cat-card mining">
-        <div class="cat-badge">ÚNICO</div>
-        <div class="cat-icon-wrap gold"><i class="fas fa-boxes"></i></div>
-        <h6>Insumos y materiales</h6>
-        <span class="cat-count">Venta · Lote</span>
-      </a>
-    </div>
-
-    <!-- Mining callout -->
-    <div class="mining-callout">
-      <div>
-        <span class="badge-exclusive"><i class="fas fa-map-marker-alt me-1"></i> Exclusivo San Juan</span>
-        <h3>¿Tenés equipos mineros que ya no usás?</h3>
-        <p>San Juan es la capital minera de Argentina. Pero si no sos proveedor registrado, tus herramientas y equipos no tienen dónde aparecer. Acá sí. Llegás directamente a quien los necesita, sin intermediarios y sin pagar nada.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===========================
-     CTA PUBLICAR (gancho premium)
-=========================== -->
-<section class="sample-listings">
-  <div class="container">
-    <!-- GANCHO -->
-    <div style="background: var(--brand-dark); border: 1px solid rgba(255,253,248,0.08); border-radius: var(--radius-lg); padding: 64px 40px; text-align: center; color: #fffdf8; position: relative; overflow: hidden;">
-      <div style="position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; border: 1px solid rgba(255,253,248,0.08); border-radius: 50%; pointer-events: none;"></div>
-      <div style="position: absolute; bottom: -80px; left: -50px; width: 220px; height: 220px; border: 1px solid rgba(255,253,248,0.06); border-radius: 50%; pointer-events: none;"></div>
-
-      <div style="position: relative; z-index: 2;">
-        <div style="font-family: var(--ff-body); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--brand-blue2); margin-bottom: 22px;">
-          Gratis para siempre
-        </div>
-
-        <h3 style="font-family: var(--ff-head); font-weight: 600; font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing: -0.02em; margin-bottom: 18px; line-height: 1.1;">
-          Sé el primero en <span style="font-style: italic; font-weight: 500; color: var(--brand-blue2);">publicar</span>
-        </h3>
-
-        <p style="font-size: 1.1rem; color: rgba(255,253,248,0.72); max-width: 560px; margin: 0 auto 40px; line-height: 1.7;">
-          Tu aviso aparece acá al instante. Sin esperar, sin aprobación, sin costo alguno. Completá el formulario y en minutos tu propiedad o equipo está visible para todos en San Juan.
-        </p>
-
-        <!-- Stats de confianza -->
-        <div style="display: flex; justify-content: center; gap: 0; margin-bottom: 44px; flex-wrap: wrap; border-top: 1px solid rgba(255,253,248,0.10); border-bottom: 1px solid rgba(255,253,248,0.10); max-width: 560px; margin-left: auto; margin-right: auto;">
-          <div style="text-align: center; padding: 24px 28px; flex: 1; min-width: 120px;">
-            <div style="font-family: var(--ff-head); font-size: 1.7rem; font-weight: 600; color: #fffdf8;">100%</div>
-            <div style="font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,253,248,0.55); margin-top: 4px;">Gratis siempre</div>
-          </div>
-          <div style="text-align: center; padding: 24px 28px; flex: 1; min-width: 120px; border-left: 1px solid rgba(255,253,248,0.10);">
-            <div style="font-family: var(--ff-head); font-size: 1.7rem; font-weight: 600; color: #fffdf8;">2 min</div>
-            <div style="font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,253,248,0.55); margin-top: 4px;">Para publicar</div>
-          </div>
-          <div style="text-align: center; padding: 24px 28px; flex: 1; min-width: 120px; border-left: 1px solid rgba(255,253,248,0.10);">
-            <div style="font-family: var(--ff-head); font-size: 1.7rem; font-weight: 600; color: #fffdf8;">0%</div>
-            <div style="font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,253,248,0.55); margin-top: 4px;">Comisión</div>
-          </div>
-        </div>
-
-        <!-- Botón principal -->
-        <a href="publicar.html?src=inicio" style="display: inline-flex; align-items: center; gap: 12px; background: var(--brand-blue); color: #fffdf8; padding: 17px 38px; border-radius: var(--radius-md); font-weight: 600; font-size: 1.05rem; text-decoration: none; box-shadow: var(--shadow-lg); transition: all 0.2s ease; font-family: var(--ff-body); letter-spacing: 0.01em;">
-          Publicar mi aviso gratis
-        </a>
-
-        <!-- Garantías -->
-        <div style="margin-top: 28px; display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; font-size: 0.82rem; color: rgba(255,253,248,0.6);">
-          <span style="display: inline-flex; align-items: center; gap: 7px;">
-            <i class="fas fa-shield-halved" style="color: var(--brand-blue2); font-size: 0.85rem;"></i> Sin datos de tarjeta
-          </span>
-          <span style="display: inline-flex; align-items: center; gap: 7px;">
-            <i class="fas fa-bolt" style="color: var(--brand-blue2); font-size: 0.85rem;"></i> Publicación inmediata
-          </span>
-          <span style="display: inline-flex; align-items: center; gap: 7px;">
-            <i class="fas fa-handshake" style="color: var(--brand-blue2); font-size: 0.85rem;"></i> Contacto directo
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===========================
-     REAL LISTINGS
-=========================== -->
-<section class="real-listings-section" id="avisos-publicados">
-  <div class="container">
-    <div class="text-center mb-4">
-      <span class="section-label" style="color:var(--free-green);">En vivo</span>
-      <h2 class="section-title">Casas, departamentos y alquileres en San Juan</h2>
-      <p class="section-subtitle">Propiedades y equipos reales publicados por particulares de San Juan: casas en venta, departamentos en alquiler, terrenos, galpones y maquinaria minera. Contacto directo con el dueño — sin intermediarios ni comisión.</p>
-    </div>
-    <!-- Filtros -->
-    <div class="listings-toolbar">
-      <div class="filter-bar-wrap" id="filterBar">
-        <button class="filter-chip active" onclick="setCategoryFilter(null,this)">Todos</button>
-        <button class="filter-chip" onclick="setCategoryFilter('Casas',this)"><i class="fas fa-home"></i> Casas</button>
-        <button class="filter-chip" onclick="setCategoryFilter('Departamentos',this)"><i class="fas fa-building"></i> Deptos</button>
-        <button class="filter-chip" onclick="setCategoryFilter('Terrenos',this)"><i class="fas fa-map"></i> Terrenos</button>
-        <button class="filter-chip" onclick="setCategoryFilter('Galpones y Depósitos',this)"><i class="fas fa-warehouse"></i> Galpones</button>
-        <button class="filter-chip" onclick="setCategoryFilter('Equipos y Maquinaria Minera',this)"><i class="fas fa-cogs"></i> Equipos mineros</button>
-        <button class="filter-chip" onclick="setCategoryFilter('Vehículos y Logística Minera',this)"><i class="fas fa-truck"></i> Vehículos</button>
-      </div>
-      <div class="listings-toolbar-right">
-        <select id="zonaFilterSelect" class="listings-select" onchange="applyFilters()" aria-label="Filtrar por zona">
-          <option value="">Todas las zonas</option>
-          <option value="Capital">Capital</option>
-          <option value="Rivadavia">Rivadavia</option>
-          <option value="Rawson">Rawson</option>
-          <option value="Chimbas">Chimbas</option>
-          <option value="Santa Lucía">Santa Lucía</option>
-          <option value="Pocito">Pocito</option>
-          <option value="Caucete">Caucete</option>
-          <option value="Albardón">Albardón</option>
-          <option value="9 de Julio">9 de Julio</option>
-          <option value="San Martín">San Martín</option>
-          <option value="Angaco">Angaco</option>
-          <option value="Ullum">Ullum</option>
-          <option value="Zonda">Zonda</option>
-          <option value="Calingasta">Calingasta</option>
-          <option value="Iglesia">Iglesia</option>
-          <option value="Jáchal">Jáchal</option>
-          <option value="Valle Fértil">Valle Fértil</option>
-          <option value="25 de Mayo">25 de Mayo</option>
-          <option value="Sarmiento">Sarmiento</option>
-          <option value="Otra zona">Otra zona</option>
-        </select>
-        <select id="sortFilterSelect" class="listings-select" onchange="applyFilters()" aria-label="Ordenar avisos">
-          <option value="recientes">Más recientes</option>
-          <option value="precio_asc">Menor precio</option>
-          <option value="precio_desc">Mayor precio</option>
-        </select>
-      </div>
-    </div>
-    <p class="listings-count" id="listingsCount"></p>
-    <!-- Estado: cargando -->
-    <div class="listings-state" id="listingsLoading">
-      <div class="spinner-border text-success mb-3" role="status" style="width:2.5rem;height:2.5rem;border-width:3px;"></div>
-      <p class="text-muted">Cargando avisos...</p>
-    </div>
-    <!-- Estado: Supabase no configurado -->
-    <div class="listings-placeholder hidden" id="listingsPlaceholder">
-      <i class="fas fa-plug"></i>
-      <h5 class="fw-bold mb-2">Conectá Supabase para activar avisos en vivo</h5>
-      <p class="text-muted mb-3" style="max-width:440px;margin:0 auto 20px;">Los avisos de ejemplo de arriba muestran cómo se ve cada publicación. Cuando configures tu base de datos, los avisos reales aparecerán aquí automáticamente.</p>
-      <a href="guia-supabase.html" target="_blank" class="btn-hero-free" style="display:inline-flex;">
-        <i class="fas fa-book-open me-2"></i> Ver guía de configuración
-      </a>
-    </div>
-    <!-- Estado: sin avisos -->
-    <div class="listings-state hidden" id="listingsEmpty">
-      <i class="fas fa-folder-open"></i>
-      <h5 class="fw-bold">Todavía no hay avisos publicados</h5>
-      <p class="text-muted">¡Sé el primero! Publicar es gratis y tarda 5 minutos.</p>
-      <a href="publicar.html?src=inicio" class="btn-hero-free mt-3" style="display:inline-flex;">
-        <i class="fas fa-plus-circle me-2"></i> Publicar ahora
-      </a>
-    </div>
-    <!-- Grilla de tarjetas -->
-    <div class="row g-4" id="listingsGrid"></div>
-    <!-- CTA después de los avisos -->
-    <div class="text-center mt-5 hidden" id="listingsCta">
-      <p class="text-muted mb-3">¿Tenés algo para publicar?</p>
-      <a href="publicar.html?src=inicio" class="btn-hero-free" style="display:inline-flex;">
-        <i class="fas fa-plus-circle me-2"></i> Publicar mi aviso gratis
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===========================
-     WHY US
-=========================== -->
-<section class="whyus-section">
-  <div class="container">
-    <div class="text-center mb-5">
-      <span class="section-label">5 razones</span>
-      <h2 class="section-title">¿Por qué publicar acá y no en otro lado?</h2>
-      <p class="section-subtitle">Hay clasificados genéricos. Lo nuestro es diferente.</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fas fa-search"></i></div>
-          <div class="benefit-content">
-            <h5>Aparecer en Google</h5>
-            <p>A diferencia de tus posts en redes, tus avisos acá son indexados por Google. Si alguien busca "casa en alquiler San Juan", podés aparecer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fas fa-infinity"></i></div>
-          <div class="benefit-content">
-            <h5>Sin vencimiento</h5>
-            <p>Tu aviso no desaparece en 24 horas. Sigue publicado hasta que vendés, alquilás, o nos avisás. Sin que tengas que hacer nada.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="benefit-card mine">
-          <div class="benefit-icon"><i class="fas fa-hammer"></i></div>
-          <div class="benefit-content">
-            <h5>El único lugar para equipos mineros</h5>
-            <p>En toda Argentina no hay un espacio específico para particulares que venden herramientas o equipos del sector minero de San Juan. Este es.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="benefit-card blue">
-          <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
-          <div class="benefit-content">
-            <h5>Respaldado por una inmobiliaria</h5>
-            <p>No es un clasificado anónimo. San Juan Propiedades & Minería revisa y respalda cada aviso. Eso genera confianza en el comprador y más contactos para vos.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fas fa-bullhorn"></i></div>
-          <div class="benefit-content">
-            <h5>Difusión en nuestras redes</h5>
-            <p>Compartimos los mejores avisos en nuestro Instagram y WhatsApp. Llegás a miles de seguidores activos del sector inmobiliario sanjuanino.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fas fa-money-bill-slash"></i></div>
-          <div class="benefit-content">
-            <h5>Cero costos, ahora y siempre</h5>
-            <p>No cobramos por publicar. No cobramos comisión cuando vendés. El comprador te contacta a vos directamente. El dinero es tuyo.</p>
+          <div class="phone-chat" id="heroChat">
+            <!-- Mensajes se generan por JS -->
           </div>
         </div>
       </div>
@@ -1912,651 +321,637 @@
   </div>
 </section>
 
-<!-- ===========================
-     TESTIMONIALS  ← temporalmente oculto hasta tener experiencias reales
-=========================== -->
-<section class="testimonials-mini" style="display:none;">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="section-title" style="color:white;">Lo que dicen quienes ya publicaron</h2>
-      <p style="color:rgba(255,255,255,0.5);">Experiencias reales de particulares de San Juan.</p>
+<!-- PROBLEMA -->
+<section id="problema" class="sec sec-problem">
+  <div class="ctr tc">
+    <div class="stag" style="background:rgba(107,142,110,0.15);color:#fff;border-color:rgba(255,255,255,0.2)">El problema</div>
+    <h2 class="stitle">Publicar no es vender</h2>
+    <p class="ssub">Si solo subís fotos y esperás que te escriban… estás perdiendo plata todos los días.</p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h3>Respondés tarde (o nunca)</h3>
+        <p>El 70% no insiste si no respondés rápido. Tu cliente ya le escribió a otro.</p>
+      </div>
+      <div class="problem-card">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <h3>No tenés sistema de venta</h3>
+        <p>Tu proceso es: responder DMs cuando podés. Eso no es un sistema, es caos.</p>
+      </div>
+      <div class="problem-card">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <h3>Perdés ventas que ya tenías</h3>
+        <p>Te escribieron, preguntaron, y no concretaron. Sin seguimiento, se enfrían y no vuelven.</p>
+      </div>
+      <div class="problem-card">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Dependés del boca en boca</h3>
+        <p>No tenés forma de captar nuevos clientes. Tu crecimiento depende del azar.</p>
+      </div>
     </div>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="testi-card">
-          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="testi-text">"Tenía una casa para alquilar que publiqué mil veces en Instagram. Acá me contactaron 3 familias serias en una semana. La alquilé sin comisión."</p>
-          <div class="testi-author">— María G.</div>
-          <div class="testi-role">Capital, San Juan · Casa en alquiler</div>
+
+    <a href="#demo" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--text);padding:16px 32px;border-radius:50px;font-weight:800;font-size:1rem;margin-top:48px;transition:transform .2s">Ver cómo funciona →</a>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" class="sec sec-demo">
+  <div class="ctr tc" style="margin-bottom:48px">
+    <div class="stag">Demo</div>
+    <h2 class="stitle">Así respondería tu negocio automáticamente</h2>
+    <p class="ssub">Probá el sistema como si fueras un cliente real. Sin instalar nada.</p>
+  </div>
+
+  <div class="video-demo" style="max-width:900px;margin:0 auto 40px">
+    <h3>Mirá cómo un cliente compra solo por WhatsApp</h3>
+    <a href="./demos/bot-ropa/index.html" target="_blank" class="video-thumb">
+      <div class="video-play">
+        <svg width="28" height="28" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </a>
+    <p>Hacé clic en el video para probar el bot interactivo. Simula una venta real de principio a fin: catálogo, talle, carrito y pago.</p>
+  </div>
+
+  <div class="demo-anim-grid">
+    <div class="demo-text">
+      <h3>El cliente escribe. El bot vende.</h3>
+      <p>No necesitás estar pendiente del celular. El bot responde al instante, muestra tu catálogo, responde preguntas frecuentes y genera el link de pago.</p>
+      <a href="./demos/bot-ropa/index.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--text);color:#fff;padding:14px 28px;border-radius:50px;font-weight:700;transition:background .2s">Probar el bot ahora →</a>
+    </div>
+    <div class="demo-steps">
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div>
+          <h4>El cliente te escribe</h4>
+          <p>El bot responde al instante con saludo personalizado y menú de opciones.</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="testi-card">
-          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="testi-text">"Tenía herramientas mineras de un proyecto que terminó. Nadie en el rubro las necesitaba según yo... acá aparecieron 4 compradores. Vendí todo en 12 días."</p>
-          <div class="testi-author">— Roberto M.</div>
-          <div class="testi-role">Jáchal, San Juan · Herramientas mineras</div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div>
+          <h4>Muestra tu catálogo completo</h4>
+          <p>El cliente elige productos, talles y colores. Todo desde el chat.</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="testi-card">
-          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="testi-text">"Publiqué mi terreno acá porque no quería pagar comisión a una inmobiliaria. Me llamaron directamente. Cerré la venta yo solo con el comprador. Perfecto."</p>
-          <div class="testi-author">— Carlos P.</div>
-          <div class="testi-role">Rivadavia, San Juan · Terreno en venta</div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div>
+          <h4>Responde preguntas frecuentes</h4>
+          <p>Precios, envíos, talles, stock disponible. Sin que vos copies y pegues.</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div>
+          <h4>Cierra la venta</h4>
+          <p>Genera el link de pago de MercadoPago y confirma el pedido automáticamente.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===========================
-     PUBLICATION FORM
-=========================== -->
-<section class="form-section" id="publicar">
-  <div class="container">
-    <div class="row align-items-start g-5">
-      <!-- Left: copy -->
-      <div class="col-lg-4">
-        <div class="form-section-header">
-          <span class="section-label">Es gratis</span>
-          <h2>Publicá tu aviso ahora</h2>
-          <p>Completá el formulario y tu aviso se publica inmediatamente, visible en Google y listo para recibir consultas.</p>
-          <div class="mt-4 d-flex flex-column gap-3">
-            <div class="d-flex gap-3 align-items-start">
-              <div style="width:36px;height:36px;background:rgba(16,185,129,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <i class="fas fa-check" style="color:var(--brand-green);font-size:0.85rem;"></i>
-              </div>
-              <div style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Sin costo. Ni ahora, ni cuando lo vendés.</div>
-            </div>
-            <div class="d-flex gap-3 align-items-start">
-              <div style="width:36px;height:36px;background:rgba(16,185,129,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <i class="fas fa-check" style="color:var(--brand-green);font-size:0.85rem;"></i>
-              </div>
-              <div style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Subí hasta 3 fotos de tu propiedad o equipo.</div>
-            </div>
-            <div class="d-flex gap-3 align-items-start">
-              <div style="width:36px;height:36px;background:rgba(16,185,129,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <i class="fas fa-check" style="color:var(--brand-green);font-size:0.85rem;"></i>
-              </div>
-              <div style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Te avisamos por WhatsApp cuando tu aviso esté online.</div>
-            </div>
-            <div class="d-flex gap-3 align-items-start">
-              <div style="width:36px;height:36px;background:rgba(217,119,6,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <i class="fas fa-hammer" style="color:var(--mine-gold);font-size:0.85rem;"></i>
-              </div>
-              <div style="color:rgba(255,255,255,0.7);font-size:0.9rem;">¿Tenés equipos mineros? También publicamos eso. Primeros en San Juan.</div>
-            </div>
-          </div>
+<!-- CÓMO FUNCIONA -->
+<section id="solucion" class="sec" style="background:var(--bg)">
+  <div class="ctr tc">
+    <div class="stag">Simple</div>
+    <h2 class="stitle">Así vende tu negocio automáticamente</h2>
+    <p class="ssub">Tres pasos. Cero complicaciones. Tu vendedor virtual trabajando 24/7.</p>
+    <div class="sol-grid">
+      <div class="sol-card">
+        <div class="sol-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Respuesta inmediata</h3>
+        <p>El cliente escribe, el bot responde en 2 segundos con saludo personalizado y el menú de opciones. Cero espera.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Catálogo automático</h3>
+        <p>El cliente elige productos, talles y colores. Ve fotos y precios actualizados. Todo desde el chat, sin salir a Instagram.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h3>Cierre de venta</h3>
+        <p>Arma el pedido automáticamente, calcula el total y genera el link de pago de MercadoPago. El cliente paga sin complicaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS + GENTE REAL -->
+<section class="sec" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="ctr tc">
+    <div class="stag green">Resultados reales</div>
+    <h2 class="stitle">Lo que cambia cuando automatizás</h2>
+    <p class="ssub">No es magia. Es tener un sistema que trabaja mientras vos hacés otra cosa.</p>
+    <div class="bene-grid">
+      <div class="bene-item">
+        <div class="bene-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div><h4>Más ventas concretas</h4><p>Respondés rápido, mostrás precios claros y cerrás la venta en el momento.</p></div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div><h4>Respuestas al instante, 24/7</h4><p>Tu negocio nunca duerme. El bot atiende de madrugada, sábados y feriados.</p></div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div><h4>Menos trabajo manual</h4><p>Dejás de copiar y pegar los mismos mensajes. El bot maneja las preguntas repetitivas.</p></div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div><h4>Imagen profesional</h4><p>Tu negocio responde instantáneo, con catálogo prolijo y pago online.</p></div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div><h4>Todo registrado</h4><p>Cada pedido se guarda automáticamente en una planilla de Google Sheets.</p></div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div><h4>Cobrás sin complicarte</h4><p>El bot genera el link de MercadoPago automáticamente. El cliente paga online.</p></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:72px;font-size:1.4rem;font-weight:800;color:var(--text)">Hecho para negocios como el tuyo</h3>
+    <div class="people-grid">
+      <div class="people-card">
+        <div class="people-img"><img src="images-warm/emprendedora.png" alt="Emprendedora de indumentaria en San Juan" /></div>
+        <div class="people-body">
+          <h4>Indumentaria</h4>
+          <p>Atendé pedidos por WhatsApp con catálogo, talles y stock actualizado, sin perder ventas por no responder.</p>
         </div>
       </div>
-
-      <!-- Right: CTA -->
-      <div class="col-lg-8">
-        <div class="form-card" style="text-align:center;">
-          <div style="width:76px;height:76px;background:var(--free-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
-            <i class="fas fa-paper-plane" style="font-size:1.9rem;color:var(--free-green);"></i>
-          </div>
-          <h3 style="font-family:var(--ff-head);font-weight:800;font-size:1.6rem;color:var(--text-dark);margin-bottom:12px;">Publicá en menos de 5 minutos</h3>
-          <p style="color:var(--text-muted);max-width:460px;margin:0 auto 32px;font-size:1rem;line-height:1.6;">
-            Contanos qué vendés o alquilás, sumá hasta 3 fotos y tu aviso queda online al instante, visible para quien lo esté buscando.
-          </p>
-          <a href="publicar.html?src=inicio" class="btn-hero-free" style="justify-content:center;width:100%;max-width:380px;margin:0 auto;padding:18px 32px;font-size:1.1rem;">
-            <i class="fas fa-plus-circle"></i> Publicar mi aviso gratis
-          </a>
-          <p style="margin-top:20px;font-size:0.85rem;color:var(--text-muted);">Sin registro. Sin costo. Nunca.</p>
+      <div class="people-card">
+        <div class="people-img"><img src="images-warm/barbero.png" alt="Barbero en San Juan" /></div>
+        <div class="people-body">
+          <h4>Peluquería y barbería</h4>
+          <p>Reservá turnos y respondé consultas automáticamente mientras atendés a otros clientes.</p>
+        </div>
+      </div>
+      <div class="people-card">
+        <div class="people-img"><img src="images-warm/viandas.png" alt="Viandas caseras en San Juan" /></div>
+        <div class="people-body">
+          <h4>Viandas y gastronomía</h4>
+          <p>Recibí pedidos con menú del día, armá el carrito y cobrá por MercadoPago sin intervención manual.</p>
+        </div>
+      </div>
+      <div class="people-card">
+        <div class="people-img"><img src="images-warm/gimnasio.png" alt="Dueños de gimnasio en San Juan" /></div>
+        <div class="people-body">
+          <h4>Gimnasio y fitness</h4>
+          <p>Ofrecé planes, horarios y reservá clases automáticamente. El bot confirma pagos y turnos.</p>
+        </div>
+      </div>
+      <div class="people-card">
+        <div class="people-img"><img src="images-warm/inmobiliaria.png" alt="Agente inmobiliaria en San Juan" /></div>
+        <div class="people-body">
+          <h4>Inmobiliaria</h4>
+          <p>Mostrá propiedades, filtrá consultas y agendá visitas sin estar pendiente del celular todo el día.</p>
+        </div>
+      </div>
+      <div class="people-card">
+        <div class="people-img"><img src="images-warm/estetica.png" alt="Dueña de centro de estética en San Juan" /></div>
+        <div class="people-body">
+          <h4>Estética y belleza</h4>
+          <p>Reservá turnos de uñas, cejas, pestañas y depilación. El bot confirma horarios automáticamente.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===========================
-     FAQ
-=========================== -->
-<section class="faq-section">
-  <div class="container">
-    <div class="col-lg-8 mx-auto">
-      <div class="text-center mb-5">
-        <span class="section-label">Preguntas frecuentes</span>
-        <h2 class="section-title">Todo lo que querés saber</h2>
-        <p class="section-subtitle">Si tenés más dudas, escribinos por WhatsApp.</p>
-      </div>
-      <div class="accordion" id="faqAcc">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-              ¿Publicar es realmente gratis? ¿Hay algo que cobren?
-            </button>
-          </h2>
-          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              Sí, 100% gratuito. No pagás para publicar. No pagás comisión cuando vendés. No hay suscripción mensual. El comprador o inquilino te contacta directamente a vos por WhatsApp. El dinero de la operación es íntegramente tuyo. San Juan Propiedades & Minería no cobra nada de esta sección.
-            </div>
-          </div>
+<!-- RUBROS -->
+<section id="rubros" class="sec" style="background:var(--bg)">
+  <div class="ctr tc">
+    <div class="stag">Rubros</div>
+    <h2 class="stitle">Pensado para tu rubro</h2>
+    <p class="ssub">No importa qué vendás. El sistema se adapta a tu negocio. Hacé clic y mirá la demo en vivo.</p>
+    <div class="demos-grid">
+
+      <a href="./demos/viandas-ventas/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp1">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M8 21h8a2 2 0 0 0 2-2v-6H6v6a2 2 0 0 0 2 2z"/><path d="M12 3v10"/><path d="M12 3a3 3 0 0 1 3 3v4H9V6a3 3 0 0 1 3-3z"/></svg>
+          <span class="demo-tag">Ver demo →</span>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-              ¿Necesito estar registrado o tener cuenta para publicar?
-            </button>
-          </h2>
-          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              No. Solamente llenás el formulario con tus datos básicos (nombre y WhatsApp) y los datos de lo que querés publicar. Sin crear cuenta, sin contraseña, sin verificación de email. Tu aviso se publica inmediatamente y aparece en el sitio al instante.
-            </div>
-          </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Gastronomía · Viandas</div>
+          <h3>Viandas & Comida casera</h3>
+          <p>Menú semanal con carrito de pedidos, bot de ventas y cobro automático.</p>
+          <div class="demo-feats"><span class="df">Bot ventas</span><span class="df">Carrito</span><span class="df">MercadoPago</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Restaurantes · Catering</span></div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-              ¿Cuánto tiempo dura publicado mi aviso?
-            </button>
-          </h2>
-          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              Sin fecha de vencimiento. Tu aviso queda publicado hasta que vos nos avisés que ya lo vendiste, alquilaste, o ya no querés que aparezca. Cada 60 días te preguntamos si sigue disponible, para mantener la plataforma actualizada.
-            </div>
-          </div>
+      </a>
+
+      <a href="./demos/peluqueria/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp2">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M6 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2"/><path d="M6 8h12"/></svg>
+          <span class="demo-tag">Ver demo →</span>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-              ¿Puedo publicar equipos o herramientas mineras?
-            </button>
-          </h2>
-          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              Sí, y es uno de nuestros fuertes. San Juan es la principal provincia minera de Argentina y no existía un lugar específico donde los particulares pudieran publicar sus equipos, herramientas, vehículos o insumos del sector. Acá sí podés hacerlo. Lo revisamos, lo publicamos en la categoría correcta, y lo llegamos a difundir en grupos y canales del sector.
-            </div>
-          </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Peluquería · Estética</div>
+          <h3>Peluquería & Studio</h3>
+          <p>Galería de trabajos, servicios con precios y reserva de turno online.</p>
+          <div class="demo-feats"><span class="df">Turnos</span><span class="df">Galería</span><span class="df">Precios</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Peluquerías · Barberías</span></div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-              ¿Qué diferencia hay con publicar en MercadoLibre o Facebook?
-            </button>
-          </h2>
-          <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              MercadoLibre cobra comisión cuando vendés. Facebook Marketplace es genérico y sin categorías específicas para el sector minero ni inmobiliario de San Juan. Acá no cobramos nada, somos locales (conocemos el mercado), y estamos especializados en propiedades y sector minero de San Juan. Además, tu aviso está respaldado por la credibilidad de una inmobiliaria establecida.
-            </div>
-          </div>
+      </a>
+
+      <a href="./demos/servicios-hogar/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp3">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="demo-tag">Ver demo →</span>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-              ¿Cómo me contactan los interesados?
-            </button>
-          </h2>
-          <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              Directamente a vos, por WhatsApp. En tu aviso aparece un botón que dice "Consultar por WhatsApp" y los lleva a tu número. No hay mensajes intermedios ni "gestiones" de nuestra parte. La negociación es entre vos y el comprador.
-            </div>
-          </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Servicios del Hogar</div>
+          <h3>Gas · Electricidad · Plomería</h3>
+          <p>Servicios con precios, presupuesto online y botón de urgencia 24hs.</p>
+          <div class="demo-feats"><span class="df">Presupuesto</span><span class="df">Urgencias</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Gas · Electricidad · Plomería</span></div>
         </div>
-      </div>
+      </a>
+
+      <a href="./demos/ropa/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp4">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20.38 3.4a1.6 1.6 0 0 0-2.26 0l-1.7 1.7a1.6 1.6 0 0 1-2.26 0l-1.7-1.7a1.6 1.6 0 0 0-2.26 0l-1.7 1.7a1.6 1.6 0 0 1-2.26 0l-1.7-1.7a1.6 1.6 0 0 0-2.26 0L2 6.85V21h20V6.85z"/></svg>
+          <span class="demo-tag">Ver demo →</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Venta de Ropa</div>
+          <h3>Tienda de Indumentaria</h3>
+          <p>Catálogo con talles, colores, ofertas y compra directa por WhatsApp.</p>
+          <div class="demo-feats"><span class="df">Catálogo</span><span class="df">Talles</span><span class="df">MercadoPago</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Ropa · Accesorios · Calzado</span></div>
+        </div>
+      </a>
+
+      <a href="./demos/inmobiliaria/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp5">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="demo-tag">Ver demo →</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Inmobiliaria · Alquileres</div>
+          <h3>Inmobiliaria</h3>
+          <p>Listado de propiedades, filtros, tasación sin cargo y consultas online.</p>
+          <div class="demo-feats"><span class="df">Propiedades</span><span class="df">Tasación</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Ventas · Alquileres</span></div>
+        </div>
+      </a>
+
+      <a href="./demos/gimnasio/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp6">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M6 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2"/><path d="M6 8h12"/></svg>
+          <span class="demo-tag">Ver demo →</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Fitness · Gimnasio</div>
+          <h3>PowerFit Gym</h3>
+          <p>Planes de membresía, horarios de clases y reserva de turnos online.</p>
+          <div class="demo-feats"><span class="df">Planes</span><span class="df">Horarios</span><span class="df">Turnos</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Musculación · Funcional</span></div>
+        </div>
+      </a>
+
+      <a href="./demos/veterinaria/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp7">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path d="M12 13v9"/><path d="M8 16h8"/></svg>
+          <span class="demo-tag">Ver demo →</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Veterinaria · Mascotas</div>
+          <h3>Patitas Vet</h3>
+          <p>Servicios veterinarios, turnos online, urgencias 24hs y peluquería canina.</p>
+          <div class="demo-feats"><span class="df">Turnos</span><span class="df">Urgencias</span><span class="df">Vacunación</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Perros · Gatos · Mascotas</span></div>
+        </div>
+      </a>
+
+      <a href="./demos/taller/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp8">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span class="demo-tag">Ver demo →</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Taller Mecánico</div>
+          <h3>Mecánica Express</h3>
+          <p>Presupuestos sin cargo, servicios, turnos y garantía escrita en línea.</p>
+          <div class="demo-feats"><span class="df">Presupuesto</span><span class="df">Service</span><span class="df">Frenos</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Mecánica · Electricidad</span></div>
+        </div>
+      </a>
+
+      <a href="./demos/estetica/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp9">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><circle cx="12" cy="10" r="2"/><path d="M12 14v4"/></svg>
+          <span class="demo-tag">Ver demo →</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Estética · Nails · Belleza</div>
+          <h3>Bella Estética</h3>
+          <p>Uñas esculpidas, cejas, pestañas, depilación. Turnos y promos online.</p>
+          <div class="demo-feats"><span class="df">Uñas</span><span class="df">Cejas</span><span class="df">Pestañas</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Manicure · Lifting · Laminado</span></div>
+        </div>
+      </a>
+
+      <a href="./demos/odontologia/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp10">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          <span class="demo-tag">Ver demo →</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-rubro">Odontología · Salud</div>
+          <h3>Sonrisa Perfecta</h3>
+          <p>Implantes, ortodoncia, estética dental. Obras sociales y turnos online.</p>
+          <div class="demo-feats"><span class="df">Implantes</span><span class="df">Ortodoncia</span><span class="df">Turnos</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo</span><span class="demo-lbl">Odontología · Estética</span></div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Publicar es realmente gratis? ¿Hay algo que cobren?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sí, 100% gratuito. No pagás para publicar. No pagás comisión cuando vendés. No hay suscripción mensual. El comprador o inquilino te contacta directamente a vos por WhatsApp." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Necesito estar registrado o tener cuenta para publicar?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Solamente llenás el formulario con tus datos básicos (nombre y WhatsApp) y los datos de lo que querés publicar. Tu aviso se publica inmediatamente." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto tiempo dura publicado mi aviso?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sin fecha de vencimiento. Tu aviso queda publicado hasta que vos nos avisés que ya lo vendiste, alquilaste, o ya no querés que aparezca." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo publicar equipos o herramientas mineras?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sí. San Juan es la principal provincia minera de Argentina y acá podés publicar equipos, herramientas, vehículos o insumos del sector minero." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué diferencia hay con publicar en MercadoLibre o Facebook?",
-      "acceptedAnswer": { "@type": "Answer", "text": "MercadoLibre cobra comisión cuando vendés. Facebook Marketplace es genérico. Acá no cobramos nada y estamos especializados en propiedades y sector minero de San Juan." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo me contactan los interesados?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Directamente a vos, por WhatsApp. En tu aviso aparece un botón que dice Consultar por WhatsApp y los lleva a tu número." }
-    }
-  ]
-}
-</script>
+<!-- PLANES -->
+<section id="planes" class="sec sec-packs">
+  <div class="ctr tc">
+    <div class="stag">Planes</div>
+    <h2 class="stitle">Simple y sin letra chica</h2>
+    <p class="ssub">Elegí el nivel que necesita tu negocio hoy. Podés empezar simple y crecer cuando quieras.</p>
+    <div class="packs-grid">
 
-<!-- ===========================
-     FOOTER
-=========================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="footer-brand">SAN JUAN <span>PROPIEDADES & MINERÍA</span></div>
-        <p class="footer-sub">El portal de propiedades y minería de San Juan. Publicá gratis como particular.</p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/sanjuaninmobiliario" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61593016464655" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://wa.me/5492645304372" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
+      <div class="pack">
+        <div class="pack-ico">🚀</div>
+        <div class="pack-name">Presencia Digital</div>
+        <div class="pack-desc">Empezá a existir online. Una base sólida para que tus clientes te encuentren y confíen.</div>
+        <ul class="pack-feats">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Página web completa para tu rubro</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Botón WhatsApp directo</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Link de pago MercadoPago</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Formulario de contacto</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Diseño mobile profesional</li>
+        </ul>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20consultar%20sobre%20el%20plan%20Presencia%20Digital" class="btn-pack" target="_blank">Consultar</a>
       </div>
-      <div class="col-md-2">
-        <p class="fw-700 mb-3" style="font-family:var(--ff-head);font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">Categorías</p>
-        <a href="#avisos" class="footer-link">Casas</a>
-        <a href="#avisos" class="footer-link">Departamentos</a>
-        <a href="#avisos" class="footer-link">Terrenos</a>
-        <a href="#avisos" class="footer-link">Galpones</a>
-        <a href="#avisos" class="footer-link">Equipos mineros</a>
-        <a href="#avisos" class="footer-link">Herramientas</a>
+
+      <div class="pack pop">
+        <div class="pop-badge">MÁS ELEGIDO</div>
+        <div class="pack-ico">⚡</div>
+        <div class="pack-name">Ventas Automáticas</div>
+        <div class="pack-desc">Bot de ventas + Catálogo + Carrito. Tu vendedor digital que trabaja las 24hs.</div>
+        <ul class="pack-feats">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Todo de Presencia Digital</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <b>Bot de ventas interactivo</b></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Catálogo con 50+ productos</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Carrito de compras integrado</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Respuestas automáticas 24/7</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Link de pago automático</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Panel de pedidos Google Sheets</li>
+        </ul>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20el%20plan%20Ventas%20Autom%C3%A1ticas" class="btn-pack p" target="_blank">Lo quiero</a>
       </div>
-      <div class="col-md-2">
-        <p class="fw-700 mb-3" style="font-family:var(--ff-head);font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">Plataforma</p>
-        <a href="publicar.html?src=inicio" class="footer-link">Publicar aviso</a>
-        <a href="publicar.html?src=inicio" class="footer-link">Por qué publicar acá</a>
-        <a href="index.html" class="footer-link">Inmobiliaria</a>
-        <a href="index.html#tasacion" class="footer-link">Tasación gratis</a>
-        <a href="index.html#calculadora" class="footer-link">Calcular cuota</a>
+
+      <div class="pack">
+        <div class="pack-ico">💎</div>
+        <div class="pack-name">Negocio Digital Pro</div>
+        <div class="pack-desc">Para negocios con volumen. Sistema completo de gestión y automatización.</div>
+        <ul class="pack-feats">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Todo de Ventas Automáticas</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Stock en tiempo real</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Integración Google Calendar</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Notificaciones automáticas</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Reportes semanales de ventas</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Soporte prioritario</li>
+        </ul>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20consultar%20sobre%20el%20plan%20Negocio%20Digital%20Pro" class="btn-pack" target="_blank">Consultar</a>
       </div>
-      <div class="col-md-4">
-        <p class="fw-700 mb-3" style="font-family:var(--ff-head);font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">¿Dudas?</p>
-        <p style="font-size:0.88rem;margin-bottom:14px;">Escribinos directamente. Respondemos en menos de 1 hora.</p>
-        <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20publicar%20en%20la%20sección%20de%20particulares." target="_blank"
-           style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:12px 22px;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;">
-          <i class="fab fa-whatsapp"></i> Escribirnos por WhatsApp
-        </a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 San Juan Propiedades & Minería · San Juan, Argentina</span>
-      <span class="gratis-footer"><i class="fas fa-check me-1"></i> Publicar es GRATIS</span>
+
     </div>
   </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec sec-cta">
+  <div class="ctr">
+    <h2 class="stitle">Si ya vendés por Instagram,<br>estás a un paso de vender mejor</h2>
+    <p>No te faltan clientes. Estás perdiendo los que ya te escriben.</p>
+    <a href="https://wa.me/5492645304372?text=Hola!%20Vi%20la%20p%C3%A1gina%20y%20quiero%20info%20sobre%20el%20sistema%20de%20ventas" class="btn-white" target="_blank">Quiero mi sistema →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Moviltec <span>Digital</span></div>
+  <p>Moviltec Digital · San Juan, Argentina</p>
+  <p>moviltecdigital.com.ar</p>
+  <div class="f-links">
+    <a href="#problema">Problema</a>
+    <a href="#demo">Demo</a>
+    <a href="#rubros">Rubros</a>
+    <a href="#solucion">Cómo funciona</a>
+    <a href="#planes">Planes</a>
+    <a href="https://wa.me/5492645304372" target="_blank">WhatsApp</a>
+  </div>
+  <div class="f-copy">© 2025 Moviltec Digital · Todos los derechos reservados</div>
 </footer>
 
-<!-- ===========================
-     FLOATING WHATSAPP
-=========================== -->
-<a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20publicar%20en%20la%20sección%20de%20particulares." target="_blank" class="whatsapp-float d-none d-lg-flex" title="Consultar por WhatsApp">
-  <i class="fab fa-whatsapp"></i>
+<!-- WA FLOAT BUTTON -->
+<a href="https://wa.me/5492645304372?text=Hola!%20Vi%20la%20p%C3%A1gina%20y%20quiero%20info%20sobre%20el%20sistema%20de%20ventas" class="wa-f" target="_blank">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 
-<!-- ===========================
-     MOBILE STICKY BAR
-=========================== -->
-<div class="mobile-sticky d-lg-none">
-  <a href="publicar.html?src=inicio" class="mobile-sticky-btn primary">
-    <i class="fas fa-plus-circle"></i> Publicar gratis
-  </a>
-  <a href="https://wa.me/5492645304372?text=Hola!%20Tengo%20algo%20para%20publicar%20en%20la%20sección%20de%20particulares." target="_blank" class="mobile-sticky-btn secondary">
-    <i class="fab fa-whatsapp"></i> WhatsApp
-  </a>
-</div>
-
-<!-- ===========================
-     EXIT POPUP
-=========================== -->
-<div class="exit-overlay hidden" id="exitPopup">
-  <div class="exit-card">
-    <button class="exit-close" onclick="closeExit()">×</button>
-    <div style="width:60px;height:60px;background:var(--free-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--free-green);margin:0 auto 20px;">
-      <i class="fas fa-bullhorn"></i>
-    </div>
-    <h4 style="text-align:center;margin-bottom:8px;">¿Tenés algo para vender o alquilar?</h4>
-    <p style="text-align:center;">Publicalo gratis en el sitio. 5 minutos y tu aviso está en internet, visible para quienes realmente buscan lo que vos tenés.</p>
-    <a href="publicar.html?src=inicio" class="btn-hero-free w-100 justify-content-center mb-3" onclick="closeExit()">
-      <i class="fas fa-plus-circle"></i> Publicar mi aviso ahora
-    </a>
-    <p class="exit-dismiss" onclick="closeExit()">No gracias, prefiero que me pierdan entre los posts de Instagram</p>
-  </div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Supabase JS (base de datos + storage) -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-
 <script>
-  /* ===========================
-     SUPABASE CONFIG
-     Reemplazá los dos valores de abajo con los
-     de tu proyecto en supabase.com
-  =========================== */
-  const SUPABASE_URL      = 'https://hcdgwlvnpkduabgufnit.supabase.co';       // ej: https://abcdef.supabase.co
-  const SUPABASE_ANON_KEY = 'sb_publishable_O24KM-peZRdDo2SENY-uEg_g-Y_cJt5';  // clave pública (anon/public)
-  const sb = (SUPABASE_URL !== 'TU_SUPABASE_URL' && window.supabase)
-    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    : null;
+// Animación del chat en hero
+const heroPhoneScreen = document.getElementById('heroPhoneScreen');
+let phoneScreenOriginal = heroPhoneScreen.innerHTML;
 
-  /* ===========================
-     CONSTANTS
-  =========================== */
-  const WA_NUMBER = '5492645304372';
+function getTime(){const n=new Date();return n.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});}
 
-  /* ===========================
-     COUNTER ANIMATION
-  =========================== */
-  const counters = [
-    { el: 'cnt1', target: 24, suffix: '', prefix: '' },
-    { el: 'cnt2', target: 11, suffix: '', prefix: '' },
-    { el: 'cnt3', target: 0, suffix: '', prefix: '' }, // "0%" stays
-  ];
+function addMsg(text, type='in'){
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-msg ' + (type==='out'?'out':'in');
+  bubble.style.animationDelay = '0s';
+  bubble.innerHTML = text + '<span class="time">' + getTime() + '</span>';
+  heroChat.appendChild(bubble);
+  heroChat.scrollTop = heroChat.scrollHeight;
+}
 
-  function animateCount(el, target, duration = 1800) {
-    const start = performance.now();
-    function update(ts) {
-      const progress = Math.min((ts - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(ease * target);
-      if (progress < 1) requestAnimationFrame(update);
-      else el.textContent = target;
-    }
-    requestAnimationFrame(update);
-  }
+function addOptions(options){
+  const opt = document.createElement('div');
+  opt.className = 'chat-options';
+  opt.innerHTML = options.map(o=>'<span class="chat-opt">'+o+'</span>').join('');
+  heroChat.appendChild(opt);
+  heroChat.scrollTop = heroChat.scrollHeight;
+}
 
-  const statsObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      document.getElementById('cnt1') && animateCount(document.getElementById('cnt1'), 24);
-      document.getElementById('cnt2') && animateCount(document.getElementById('cnt2'), 11);
-      document.getElementById('cnt3') && animateCount(document.getElementById('cnt3'), 0);
-      statsObs.disconnect();
-    }
-  }, { threshold: 0.5 });
-
-  const statsStrip = document.querySelector('.stats-strip');
-  if (statsStrip) statsObs.observe(statsStrip);
-
-  /* ===========================
-     EXIT POPUP
-  =========================== */
-  let exitShown = false;
-  let exitTimer = setTimeout(() => {
-    if (!exitShown) showExit();
-  }, 40000); // 40 seconds
-
-  // Desktop: detect mouse leave from top
-  document.addEventListener('mouseleave', (e) => {
-    if (e.clientY < 10 && !exitShown) showExit();
+function showTyping(duration=800){
+  return new Promise(resolve=>{
+    const t = document.createElement('div');
+    t.className = 'typing';
+    t.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+    heroChat.appendChild(t);
+    heroChat.scrollTop = heroChat.scrollHeight;
+    setTimeout(()=>{if(t.parentNode)t.remove();resolve();}, duration);
   });
+}
 
-  function showExit() {
-    if (exitShown) return;
-    exitShown = true;
-    clearTimeout(exitTimer);
-    document.getElementById('exitPopup').classList.remove('hidden');
-  }
-
-  function closeExit() {
-    document.getElementById('exitPopup').classList.add('hidden');
-  }
-
-  /* ===========================
-     SMOOTH SCROLL & INIT
-  =========================== */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  /* ===========================
-     INTERSECTION OBSERVER ANIMATIONS
-  =========================== */
-  const animEls = document.querySelectorAll('.step-card, .benefit-card, .cat-card, .testi-card, .listing-card');
-  const appearObs = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '0';
-        entry.target.style.transform = 'translateY(20px)';
-        entry.target.style.transition = `opacity 0.5s ease ${i * 0.06}s, transform 0.5s ease ${i * 0.06}s`;
-        requestAnimationFrame(() => {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        });
-        appearObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-  animEls.forEach(el => appearObs.observe(el));
-
-  /* ===========================
-     SUPABASE: CARGAR AVISOS
-  =========================== */
-  let allListings = [];
-  let currentCategory = null;
-
-  async function loadListings() {
-    const elLoading     = document.getElementById('listingsLoading');
-    const elPlaceholder = document.getElementById('listingsPlaceholder');
-    const elEmpty       = document.getElementById('listingsEmpty');
-    const elGrid        = document.getElementById('listingsGrid');
-    if (!elGrid) return;
-
-    if (!sb) {
-      elLoading?.classList.add('hidden');
-      elPlaceholder?.classList.remove('hidden');
-      return;
-    }
-    try {
-      const showEjemplos = new URLSearchParams(location.search).get('ver_ejemplos') === '1';
-      const { data, error } = await sb.from('listings')
-        .select('*')
-        .order('created_at', { ascending: false });
-      if (error) throw error;
-      allListings = (data || []).filter(l => showEjemplos || !l.es_ejemplo);
-      elLoading?.classList.add('hidden');
-      applyFilters();
-      focusDeepLinkedAd();
-    } catch(err) {
-      elLoading?.classList.add('hidden');
-      elEmpty?.classList.remove('hidden');
-    }
-  }
-
-  function setCategoryFilter(categoria, btn) {
-    document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentCategory = categoria;
-    applyFilters();
-  }
-
-  function applyFilters() {
-    const zona = document.getElementById('zonaFilterSelect')?.value || '';
-    const sort = document.getElementById('sortFilterSelect')?.value || 'recientes';
-
-    let filtered = currentCategory ? allListings.filter(l => l.categoria === currentCategory) : allListings.slice();
-    if (zona) filtered = filtered.filter(l => l.zona === zona);
-
-    if (sort === 'precio_asc' || sort === 'precio_desc') {
-      const conPrecio = filtered.filter(l => l.precio && l.precio !== 'A consultar' && !isNaN(parseFloat(l.precio)));
-      const sinPrecio = filtered.filter(l => !(l.precio && l.precio !== 'A consultar' && !isNaN(parseFloat(l.precio))));
-      conPrecio.sort((a,b) => sort === 'precio_asc'
-        ? parseFloat(a.precio) - parseFloat(b.precio)
-        : parseFloat(b.precio) - parseFloat(a.precio));
-      filtered = conPrecio.concat(sinPrecio);
-    } else {
-      filtered = filtered.slice().sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
-    }
-
-    const elCount = document.getElementById('listingsCount');
-    if (elCount) {
-      elCount.textContent = allListings.length
-        ? `${filtered.length} aviso${filtered.length === 1 ? '' : 's'} encontrado${filtered.length === 1 ? '' : 's'}`
-        : '';
-    }
-    renderListings(filtered);
-  }
-
-  function renderListings(list) {
-    const elEmpty = document.getElementById('listingsEmpty');
-    const elGrid  = document.getElementById('listingsGrid');
-    const elCta   = document.getElementById('listingsCta');
-    if (!elGrid) return;
-    if (!list || list.length === 0) {
-      elEmpty?.classList.remove('hidden');
-      elGrid.innerHTML = '';
-      elCta?.classList.add('hidden');
-      return;
-    }
-    elEmpty?.classList.add('hidden');
-    elGrid.innerHTML = list.map(renderCard).join('');
-    if (list.length > 0) elCta?.classList.remove('hidden');
-  }
-
-  /* ===========================
-     RENDERIZAR TARJETA
-  =========================== */
-  const DEFAULT_IMGS = {
-    'Casas':                        'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80',
-    'Departamentos':                 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80',
-    'Terrenos':                      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
-    'Galpones y Depósitos':          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-    'Quintas y Fincas':              'https://images.unsplash.com/photo-1500076656116-558758c991c1?w=800&q=80',
-    'Locales y Oficinas':            'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-    'Equipos y Maquinaria Minera':   'https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?w=800&q=80',
-    'Herramientas Mineras':          'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
-    'Vehículos y Logística Minera':  'https://images.unsplash.com/photo-1586953208270-b559e0a2e6af?w=800&q=80',
-    'Insumos y Materiales Mineros':  'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
-    '_default':                      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80'
-  };
-
-  function escH(s) {
-    if (!s) return '';
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  function relativeDate(dateStr) {
-    if (!dateStr) return '';
-    const diffMs = Date.now() - new Date(dateStr).getTime();
-    const diffH  = Math.floor(diffMs / 3600000);
-    if (diffH < 1)  return 'Publicado hace instantes';
-    if (diffH < 24) return `Publicado hace ${diffH} hora${diffH === 1 ? '' : 's'}`;
-    const diffD = Math.floor(diffH / 24);
-    if (diffD < 7)  return `Publicado hace ${diffD} día${diffD === 1 ? '' : 's'}`;
-    return `Publicado el ${new Date(dateStr).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'})}`;
-  }
-
-  function renderCard(l) {
-    const fotos  = (l.fotos && l.fotos.length) ? l.fotos : [DEFAULT_IMGS[l.categoria] || DEFAULT_IMGS['_default']];
-    const carId  = 'c' + String(l.id).replace(/[^a-z0-9]/gi,'').slice(0,14);
-    const tel    = (l.telefono || '').replace(/\D/g,'');
-    const waMsg  = encodeURIComponent(`Hola! Vi tu aviso "${l.titulo}" en San Juan Propiedades & Minería. ¿Está disponible?`);
-    const isMine = /miner|veh[ií]c|insumo|herramienta/i.test(l.categoria || '');
-    const pColor = isMine ? 'var(--mine-gold)' : 'var(--brand-blue)';
-    const tClass = isMine ? 'mining-tag' : 'particular';
-    const tIcon  = isMine ? 'fa-hammer' : 'fa-user-check';
-    const tText  = isMine ? 'MINERÍA' : 'PARTICULAR';
-    const opMap  = { 'Venta':'background:#f0e2da;color:var(--brand-blue)', 'Alquiler':'background:#e7ede6;color:var(--free-green)', 'Busco / Necesito':'background:#efe9d8;color:var(--mine-dark)' };
-    const opSty  = opMap[l.operacion] || 'background:var(--surface);color:var(--text-mid)';
-    const pNum   = parseFloat(l.precio);
-    const pStr   = (!l.precio || l.precio==='A consultar' || isNaN(pNum))
-      ? 'A consultar'
-      : (l.moneda==='USD' ? 'USD ' : l.moneda==='ARS' ? '$ ' : '') + pNum.toLocaleString('es-AR');
-    const fecha  = relativeDate(l.created_at);
-
-    const specParts = [];
-    if (l.m2 && parseFloat(l.m2) > 0)                specParts.push(`<span><i class="fas fa-ruler-combined"></i> ${parseFloat(l.m2).toLocaleString('es-AR')} m²</span>`);
-    if (l.ambientes && parseInt(l.ambientes) > 0)     specParts.push(`<span><i class="fas fa-door-open"></i> ${parseInt(l.ambientes)} amb.</span>`);
-    if (l.dormitorios && parseInt(l.dormitorios) > 0) specParts.push(`<span><i class="fas fa-bed"></i> ${parseInt(l.dormitorios)} dorm.</span>`);
-    if (l.banos && parseInt(l.banos) > 0)             specParts.push(`<span><i class="fas fa-bath"></i> ${parseInt(l.banos)} baño${parseInt(l.banos)===1?'':'s'}</span>`);
-    const specsHtml = specParts.length ? `<div class="listing-specs">${specParts.join('')}</div>` : '';
-
-    const slides = fotos.map((f,i) =>
-      `<img src="${escH(f)}" class="listing-img carousel-slide${i===0?' active':''}" loading="lazy" alt="Foto ${i+1}">`
-    ).join('');
-    const nav = fotos.length > 1 ? `
-      <button class="car-btn car-prev" onclick="slideCarousel('${carId}',-1)" aria-label="anterior">&#8249;</button>
-      <button class="car-btn car-next" onclick="slideCarousel('${carId}',1)"  aria-label="siguiente">&#8250;</button>
-      <div class="car-dots">${fotos.map((_,i)=>`<span class="car-dot${i===0?' active':''}" onclick="goToSlide('${carId}',${i})"></span>`).join('')}</div>
-    ` : '';
-
-    return `
-      <div class="col-md-6 col-lg-4" id="l-${escH(l.id)}">
-        <div class="listing-card">
-          <div class="listing-carousel" id="${carId}" data-idx="0" data-total="${fotos.length}">
-            ${slides}${nav}
-          </div>
-          <div class="listing-body">
-            <div class="listing-header">
-              <span class="listing-tag ${tClass}"><i class="fas ${tIcon}"></i> ${tText}</span>
-              <span class="listing-tag" style="${opSty}">${escH(l.operacion)}</span>
+function showCatalogScreen(){
+  return new Promise(resolve=>{
+    heroPhoneScreen.innerHTML = `
+      <div class="catalog-screen" id="catalogScreen">
+        <div class="catalog-screen-header">
+          <span class="catalog-screen-back">←</span>
+          <span class="catalog-screen-title">Catálogo completo</span>
+        </div>
+        <div class="catalog-screen-body">
+          <div class="cat-product">
+            <div class="cat-product-img"><img src="images-warm/prod-remera.png" alt="Remera"></div>
+            <div class="cat-product-info">
+              <div class="cat-product-name">Remera Oversize Premium</div>
+              <div class="cat-product-price">$8.500</div>
+              <div class="cat-product-talles"><span class="cat-talle">XS</span><span class="cat-talle">S</span><span class="cat-talle active">M</span><span class="cat-talle">L</span></div>
             </div>
-            <h4 class="listing-title">${escH(l.titulo)}</h4>
-            <p class="listing-location"><i class="fas fa-map-marker-alt" style="color:${pColor}"></i> ${escH(l.zona)}, San Juan</p>
-            ${specsHtml}
-            <div class="listing-price" style="color:${pColor}">${escH(pStr)}</div>
-            <a href="https://wa.me/${tel}?text=${waMsg}" target="_blank" rel="noopener"
-               class="btn-listing-contact" style="${isMine ? 'background:var(--mine-gold);' : ''}">
-              <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-            </a>
-            ${fecha ? `<p class="listing-demo-badge"><i class="fas fa-calendar-alt me-1"></i> ${fecha}</p>` : ''}
+            <button class="cat-add">+</button>
+          </div>
+          <div class="cat-product">
+            <div class="cat-product-img"><img src="images-warm/prod-jean.png" alt="Jean"></div>
+            <div class="cat-product-info">
+              <div class="cat-product-name">Jean Skinny Tiro Alto</div>
+              <div class="cat-product-price">$22.500</div>
+              <div class="cat-product-talles"><span class="cat-talle">36</span><span class="cat-talle">38</span><span class="cat-talle active">40</span><span class="cat-talle">42</span></div>
+            </div>
+            <button class="cat-add">+</button>
+          </div>
+          <div class="cat-product">
+            <div class="cat-product-img"><img src="images-warm/prod-buzo.png" alt="Buzo"></div>
+            <div class="cat-product-info">
+              <div class="cat-product-name">Buzo Canguro Frisa</div>
+              <div class="cat-product-price">$18.000</div>
+              <div class="cat-product-talles"><span class="cat-talle">S</span><span class="cat-talle active">M</span><span class="cat-talle">L</span><span class="cat-talle">XL</span></div>
+            </div>
+            <button class="cat-add">+</button>
+          </div>
+          <div class="cat-product">
+            <div class="cat-product-img"><img src="images-warm/prod-vestido.png" alt="Vestido"></div>
+            <div class="cat-product-info">
+              <div class="cat-product-name">Vestido Midi Negro</div>
+              <div class="cat-product-price">$28.000</div>
+              <div class="cat-product-talles"><span class="cat-talle active">M</span><span class="cat-talle">L</span><span class="cat-talle">XL</span></div>
+            </div>
+            <button class="cat-add">+</button>
+          </div>
+          <div class="cat-product">
+            <div class="cat-product-img"><img src="images-warm/prod-gorra.png" alt="Gorra"></div>
+            <div class="cat-product-info">
+              <div class="cat-product-name">Gorra Urbana Premium</div>
+              <div class="cat-product-price">$6.500</div>
+              <div class="cat-product-talles"><span class="cat-talle active">Uni</span></div>
+            </div>
+            <button class="cat-add">+</button>
           </div>
         </div>
-      </div>`;
-  }
+      </div>
+    `;
+    // Auto-scroll suave para simular navegación
+    const body = document.querySelector('.catalog-screen-body');
+    let scrollPos = 0;
+    const scrollInterval = setInterval(()=>{
+      if(!body){clearInterval(scrollInterval);return;}
+      scrollPos += 1.5;
+      body.scrollTop = scrollPos;
+      if(scrollPos >= body.scrollHeight - body.clientHeight - 10) clearInterval(scrollInterval);
+    }, 40);
 
-  /* ===========================
-     CARRUSEL
-  =========================== */
-  function slideCarousel(carId, dir) {
-    const car = document.getElementById(carId);
-    if (!car) return;
-    const total = parseInt(car.dataset.total) || 1;
-    const idx   = ((parseInt(car.dataset.idx) || 0) + dir + total) % total;
-    goToSlide(carId, idx);
-  }
+    setTimeout(()=>{
+      clearInterval(scrollInterval);
+      heroPhoneScreen.innerHTML = phoneScreenOriginal;
+      heroChat = document.getElementById('heroChat');
+      resolve();
+    }, 6500);
+  });
+}
 
-  function goToSlide(carId, idx) {
-    const car = document.getElementById(carId);
-    if (!car) return;
-    car.dataset.idx = idx;
-    car.querySelectorAll('.carousel-slide').forEach((s,i) => s.classList.toggle('active', i===idx));
-    car.querySelectorAll('.car-dot').forEach((d,i)       => d.classList.toggle('active', i===idx));
-  }
+function addCartSummary(){
+  const cart = document.createElement('div');
+  cart.className = 'chat-cart';
+  cart.innerHTML = `
+    <div class="chat-cart-title">🛒 Tu pedido</div>
+    <div class="chat-cart-item"><span>1x Remera Oversize (M)</span><span>$8.500</span></div>
+    <div class="chat-cart-item"><span>1x Jean Skinny (38)</span><span>$22.500</span></div>
+    <div class="chat-cart-total"><span>TOTAL</span><span>$31.000</span></div>
+  `;
+  heroChat.appendChild(cart);
+  heroChat.scrollTop = heroChat.scrollHeight;
+}
 
-  /* ===========================
-     DEEP LINK  index.html?aviso=ID
-  =========================== */
-  function focusDeepLinkedAd() {
-    const id = new URLSearchParams(location.search).get('aviso');
-    if (!id) return;
-    const el = document.getElementById('l-' + id);
-    if (!el) return;
-    const card = el.querySelector('.listing-card');
-    if (card) {
-      card.style.outline       = '3px solid var(--brand-blue)';
-      card.style.outlineOffset = '3px';
-      card.style.transition    = 'outline-color .4s ease';
-    }
-    const badge = document.createElement('p');
-    badge.innerHTML = '<i class="fas fa-check-circle me-1"></i> Este es tu aviso';
-    badge.style.cssText = 'margin:10px 0 0;font-size:.82rem;font-weight:700;color:var(--brand-blue);text-align:center;';
-    el.querySelector('.listing-body')?.appendChild(badge);
-    setTimeout(() => el.scrollIntoView({ behavior:'smooth', block:'center' }), 250);
-  }
+function addPaymentLink(){
+  const pay = document.createElement('div');
+  pay.className = 'chat-cart';
+  pay.innerHTML = `
+    <div style="text-align:center;padding:4px">
+      <div style="font-size:32px;margin-bottom:8px">💳</div>
+      <div style="font-size:12px;color:#8696a0;margin-bottom:6px">Link de pago seguro</div>
+      <div style="font-size:22px;font-weight:800;color:#25D366;margin-bottom:10px">$31.000</div>
+      <button class="chat-pay-btn">Pagar con MercadoPago →</button>
+      <div style="font-size:10px;color:#8696a0;margin-top:8px">Tarjeta, débito o efectivo</div>
+    </div>
+  `;
+  heroChat.appendChild(pay);
+  heroChat.scrollTop = heroChat.scrollHeight;
+}
 
-  /* ===========================
-     INIT
-  =========================== */
-  loadListings();
+async function runChatLoop(){
+  heroPhoneScreen.innerHTML = phoneScreenOriginal;
+  heroChat = document.getElementById('heroChat');
+  heroChat.innerHTML = '';
+
+  await showTyping(800); addMsg('¡Hola! 👋 Bienvenido a MoviltecDigital Studio');
+  await new Promise(r=>setTimeout(r,1200));
+  await showTyping(1000); addMsg('Soy tu asistente de compras. Te ayudo a elegir y pagar por WhatsApp.');
+  await new Promise(r=>setTimeout(r,1000));
+  await showTyping(900); addMsg('¿Querés ver nuestro catálogo? Tenemos más de 50 prendas.');
+  addOptions(['🛍️ Ver catálogo', '💰 Precios', '🚚 Envíos']);
+
+  await new Promise(r=>setTimeout(r,2200));
+  addMsg('🛍️ Ver catálogo', 'out');
+
+  await new Promise(r=>setTimeout(r,600));
+  await showTyping(900); addMsg('Perfecto, te muestro el catálogo 👇');
+  await new Promise(r=>setTimeout(r,700));
+  await showCatalogScreen();
+
+  await new Promise(r=>setTimeout(r,500));
+  await showTyping(800); addMsg('Elegí remera M y jean 38', 'out');
+
+  await new Promise(r=>setTimeout(r,900));
+  await showTyping(1000); addMsg('¡Excelente! Agregué a tu carrito:');
+  await new Promise(r=>setTimeout(r,500));
+  addCartSummary();
+
+  await new Promise(r=>setTimeout(r,1200));
+  await showTyping(800); addMsg('¿Confirmamos el pedido?');
+  addOptions(['💳 Pagar ahora', '🛍️ Seguir comprando']);
+
+  await new Promise(r=>setTimeout(r,2200));
+  addMsg('💳 Pagar ahora', 'out');
+
+  await new Promise(r=>setTimeout(r,700));
+  await showTyping(1000); addMsg('Generando link de pago seguro... 🔒');
+  await new Promise(r=>setTimeout(r,600));
+  addPaymentLink();
+
+  await new Promise(r=>setTimeout(r,1200));
+  await showTyping(800); addMsg('✅ Listo. Una vez pagado, recibís la confirmación por WhatsApp con los detalles de envío.');
+
+  setTimeout(runChatLoop, 5000);
+}
+
+runChatLoop();
 </script>
 
 </body>

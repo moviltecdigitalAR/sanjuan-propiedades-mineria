@@ -1,0 +1,1131 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Inversa | Inmobiliaria en San Juan - Alquileres, Ventas, Galpones y Proyectos en Pozo</title>
+    
+    <!-- Bootstrap 5 & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --accent-green: #10b981;
+            --light-bg: #f8f9fa;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-blue) !important;
+            font-size: 1.4rem;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover { color: var(--primary-blue) !important; }
+        .btn-publicar {
+            background-color: var(--accent-green);
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 10px 20px;
+            border: none;
+        }
+        .btn-publicar:hover { background-color: #059669; color: white; }
+
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(rgba(0, 51, 102, 0.65), rgba(0, 51, 102, 0.65)), 
+                        url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&q=80') center/cover;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        .hero-title { font-size: 3rem; font-weight: 700; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9; }
+        
+        /* SEARCH BOX */
+        .search-box {
+            background: white;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .search-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .search-tab {
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        .search-tab.active {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        .search-input-group {
+            display: flex;
+            gap: 10px;
+        }
+        .search-input-group input {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1rem;
+            color: black;
+        }
+        .search-input-group button {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 30px;
+            font-weight: 600;
+        }
+
+        /* CATEGORIES */
+        .category-card {
+            text-align: center;
+            padding: 30px 15px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #f3f4f6;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+        }
+
+        /* PROPERTY CARDS */
+        .property-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            background: white;
+            border: 1px solid #f3f4f6;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .property-card:hover { transform: translateY(-5px); }
+        .property-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-blue);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .property-badge.rent { background: var(--accent-green); }
+        .property-badge.mortgage { background: #f59e0b; color: white; }
+        
+        .property-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        .property-price { font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); }
+        .property-address { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+        .property-specs {
+            display: flex;
+            gap: 15px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #f3f4f6;
+            flex-wrap: wrap;
+        }
+
+        /* PUBLISH SECTION */
+        .publish-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+            border-radius: 20px;
+            padding: 60px;
+        }
+        .publish-form .form-control, .publish-form .form-select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            margin-bottom: 15px;
+        }
+        .btn-submit-whatsapp {
+            background-color: #25D366;
+            color: white;
+            font-weight: 600;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        .btn-submit-whatsapp:hover { background-color: #128C7E; color: white; }
+
+        /* MORTGAGE BANNER */
+        .mortgage-banner {
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* TESTIMONIALS */
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            border: 1px solid #f3f4f6;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--accent-green);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .testimonial-name { font-weight: 600; margin: 0; font-size: 0.95rem; }
+        .testimonial-location { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+        .testimonial-stars { color: #fbbf24; margin-bottom: 15px; }
+
+        /* FOOTER */
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 60px 0 30px;
+        }
+        footer h5 { color: white; font-weight: 600; margin-bottom: 20px; }
+        footer a { color: #9ca3af; text-decoration: none; display: block; margin-bottom: 10px; }
+        footer a:hover { color: white; }
+
+        /* WHATSAPP FLOAT (DERECHA) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); color: white; }
+
+        /* CHATBOT FLOAT (IZQUIERDA - NUEVO DISEÑO) */
+        .chatbot-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--primary-blue);
+            color: white;
+            height: 56px;
+            border-radius: 50px; /* Forma de pastilla */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            animation: pulse-blue 3s infinite;
+        }
+        .chatbot-float:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.4); 
+        }
+        .chatbot-float i { font-size: 1.2rem; }
+        
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(0, 51, 102, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 51, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 51, 102, 0); }
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 100px; /* Se abre por encima del botón */
+            left: 30px;
+            width: 360px;
+            max-width: calc(100vw - 40px);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 1001;
+            overflow: hidden;
+            display: none;
+            animation: slideUpLeft 0.3s ease-out;
+        }
+        .chatbot-window.active { display: block; }
+        
+        @keyframes slideUpLeft {
+            from { opacity: 0; transform: translateY(20px) translateX(-10px); }
+            to { opacity: 1; transform: translateY(0) translateX(0); }
+        }
+        
+        .chatbot-header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chatbot-header h5 { margin: 0; font-size: 1rem; font-weight: 600; }
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .chatbot-close:hover { opacity: 1; }
+        
+        .chatbot-body {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .chatbot-message {
+            background: #f3f4f6;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        .chatbot-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .chatbot-option {
+            background: white;
+            border: 1px solid #e5e7eb;
+            padding: 12px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            text-align: left;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+        }
+        .chatbot-option:hover {
+            border-color: var(--primary-blue);
+            background: #eff6ff;
+            transform: translateX(5px);
+        }
+        .chatbot-option i {
+            color: var(--primary-blue);
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+        .chatbot-back {
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 15px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        .chatbot-back:hover { text-decoration: underline; }
+        
+        .chatbot-response {
+            background: #eff6ff;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .chatbot-wa-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .chatbot-wa-btn:hover { background-color: #128C7E; color: white; }
+
+        /* RESPONSIVE ADJUSTMENTS */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .search-input-group { flex-direction: column; }
+            .publish-section { padding: 30px 20px; }
+            .mortgage-banner { flex-direction: column; text-align: center; gap: 20px; }
+            
+            /* Ajuste de botones flotantes en móvil para que no tapen contenido */
+            .chatbot-float {
+                bottom: 20px;
+                left: 20px;
+                width: 56px;
+                height: 56px;
+                padding: 0;
+                border-radius: 50%; /* Vuelve a ser circular en móvil para ahorrar espacio */
+            }
+            .chatbot-label { display: none; } /* Oculta el texto en móvil */
+            
+            .chatbot-window {
+                left: 20px;
+                bottom: 90px;
+                width: calc(100vw - 40px);
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Grupo Inversa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#propiedades">Propiedades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categorias">Galpones y Terrenos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categorias">Proyectos en Pozo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hipotecario">Crédito Hipotecario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tasacion">Tasación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#opiniones">Opiniones</a></li>
+                </ul>
+                <a href="#publicar" class="btn btn-publicar"><i class="fas fa-plus-circle me-2"></i>Publicá tu Propiedad</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="hero-title">Encontrá tu próxima inversión o hogar en San Juan</h1>
+            <p class="hero-subtitle">Especialistas en alquileres, galpones, terrenos y proyectos en pozo en Gran San Juan.</p>
+            
+            <div class="search-box">
+                <div class="search-tabs">
+                    <button class="search-tab active">Alquilar</button>
+                    <button class="search-tab">Comprar</button>
+                    <button class="search-tab">Galpones</button>
+                    <button class="search-tab">Terrenos</button>
+                    <button class="search-tab">Pozo</button>
+                </div>
+                <div class="search-input-group">
+                    <input type="text" placeholder="Ingresá zona o barrio (ej: Rivadavia, Rawson, Capital, Caucete...)">
+                    <button><i class="fas fa-search me-2"></i> Buscar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-4 bg-light border-bottom">
+        <div class="container">
+            <div class="row text-center g-3">
+                <div class="col-6 col-md-3">
+                    <h3 class="fw-bold mb-0" style="color: var(--primary-blue);">+300</h3>
+                    <small class="text-muted">Operaciones cerradas</small>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="fw-bold mb-0" style="color: var(--primary-blue);">15</h3>
+                    <small class="text-muted">Años en el mercado</small>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="fw-bold mb-0" style="color: var(--primary-blue);">Gratis</h3>
+                    <small class="text-muted">Tasación online</small>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="fw-bold mb-0" style="color: var(--primary-blue);">24hs</h3>
+                    <small class="text-muted">Tiempo de respuesta</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section id="categorias" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Explorá por tipo de propiedad</h2>
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-building"></i></div>
+                        <h6 class="fw-bold mb-0">Departamentos</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-house"></i></div>
+                        <h6 class="fw-bold mb-0">Casas</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-warehouse"></i></div>
+                        <h6 class="fw-bold mb-0">Galpones</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-mountain-sun"></i></div>
+                        <h6 class="fw-bold mb-0">Terrenos</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-helmet-safety"></i></div>
+                        <h6 class="fw-bold mb-0">Proyectos en Pozo</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="category-card">
+                        <div class="category-icon"><i class="fas fa-store"></i></div>
+                        <h6 class="fw-bold mb-0">Locales</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPIEDADES DESTACADAS -->
+    <section id="propiedades" class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold mb-0">Propiedades Disponibles en San Juan</h2>
+                <a href="#" class="text-decoration-none fw-bold" style="color: var(--primary-blue);">Ver todas <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div class="row g-4">
+                <!-- Card 1 - Alquiler Casa Rivadavia -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="property-card">
+                        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80');">
+                            <span class="property-badge rent">Alquiler</span>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-price">$ 380.000 <small class="text-muted fw-normal">/mes</small></div>
+                            <div class="property-address"><i class="fas fa-map-marker-alt me-2"></i>Rivadavia, San Juan</div>
+                            <p class="text-muted small">Casa moderna en barrio privado sobre Ruta 40. 3 dormitorios, patio con quincho y pileta. Cochera doble. A 10 min del centro.</p>
+                            <div class="property-specs">
+                                <span><i class="fas fa-bed me-1"></i> 3 Amb.</span>
+                                <span><i class="fas fa-bath me-1"></i> 2 Baños</span>
+                                <span><i class="fas fa-ruler-combined me-1"></i> 140 m²</span>
+                                <span><i class="fas fa-car me-1"></i> Cochera</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 - Alquiler Depto Capital -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="property-card">
+                        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80');">
+                            <span class="property-badge rent">Alquiler</span>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-price">$ 220.000 <small class="text-muted fw-normal">/mes</small></div>
+                            <div class="property-address"><i class="fas fa-map-marker-alt me-2"></i>Centro, Capital</div>
+                            <p class="text-muted small">Depto reciclado a nuevo, piso 6 con vista a la Cordillera. Luminoso, cocina equipada, balcón. A metros de Av. Libertador.</p>
+                            <div class="property-specs">
+                                <span><i class="fas fa-bed me-1"></i> 2 Amb.</span>
+                                <span><i class="fas fa-bath me-1"></i> 1 Baño</span>
+                                <span><i class="fas fa-ruler-combined me-1"></i> 58 m²</span>
+                                <span><i class="fas fa-door-open me-1"></i> Balcón</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 - Galpón Parque Industrial -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="property-card">
+                        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80');">
+                            <span class="property-badge" style="background: #4b5563;">Galpón</span>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-price">USD 900 <small class="text-muted fw-normal">/mes</small></div>
+                            <div class="property-address"><i class="fas fa-map-marker-alt me-2"></i>Parque Industrial, Rivadavia</div>
+                            <p class="text-muted small">Galpón industrial sobre calle principal, ideal logística o producción. Acceso para camiones, oficina y baño. 500m² cubiertos.</p>
+                            <div class="property-specs">
+                                <span><i class="fas fa-warehouse me-1"></i> 500 m²</span>
+                                <span><i class="fas fa-truck me-1"></i> Acceso camión</span>
+                                <span><i class="fas fa-bath me-1"></i> 2 Baños</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Card 4 - Terreno Caucete -->
+                 <div class="col-md-6 col-lg-4">
+                    <div class="property-card">
+                        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80');">
+                            <span class="property-badge" style="background: #b45309;">Terreno</span>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-price">USD 35.000</div>
+                            <div class="property-address"><i class="fas fa-map-marker-alt me-2"></i>Caucete, San Juan</div>
+                            <p class="text-muted small">Terreno en barrio cerrado con seguridad 24hs. Lote de 500m², todos los servicios, vista a la montaña. Ideal para construir tu casa.</p>
+                            <div class="property-specs">
+                                <span><i class="fas fa-ruler-combined me-1"></i> 500 m²</span>
+                                <span><i class="fas fa-shield-alt me-1"></i> Seguridad</span>
+                                <span><i class="fas fa-water me-1"></i> Servicios</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Card 5 - Pozo Capital -->
+                 <div class="col-md-6 col-lg-4">
+                    <div class="property-card">
+                        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80');">
+                            <span class="property-badge" style="background: #7c3aed;">Proyecto en Pozo</span>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-price">USD 75.000</div>
+                            <div class="property-address"><i class="fas fa-map-marker-alt me-2"></i>Av. Libertador, Capital</div>
+                            <p class="text-muted small">Torre de departamentos 1, 2 y 3 ambientes en pleno centro. Pileta, sum, gym. Entrega 2027. Financiación directa en pesos y USD.</p>
+                            <div class="property-specs">
+                                <span><i class="fas fa-building me-1"></i> Torre</span>
+                                <span><i class="fas fa-swimming-pool me-1"></i> Pileta</span>
+                                <span><i class="fas fa-dumbbell me-1"></i> Gym</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 - Apto Crédito Santa Lucía -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="property-card">
+                        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80');">
+                            <span class="property-badge mortgage">Apto Crédito</span>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-price">USD 95.000</div>
+                            <div class="property-address"><i class="fas fa-map-marker-alt me-2"></i>Santa Lucía, San Juan</div>
+                            <p class="text-muted small">Casa en PH de 3 ambientes, patio propio y cochera. Reciclada a nuevo. Apta para crédito hipotecario bancario UVA.</p>
+                            <div class="property-specs">
+                                <span><i class="fas fa-bed me-1"></i> 3 Amb.</span>
+                                <span><i class="fas fa-bath me-1"></i> 1 Baño</span>
+                                <span><i class="fas fa-ruler-combined me-1"></i> 90 m²</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICA TU PROPIEDAD -->
+    <section id="publicar" class="py-5">
+        <div class="container">
+            <div class="publish-section">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <span class="badge bg-success mb-3 px-3 py-2">Servicio para Propietarios</span>
+                        <h2 class="fw-bold mb-3">¿Tenés una propiedad y querés publicitarla?</h2>
+                        <p class="text-muted mb-4">Nosotros nos encargamos de todo. Publicamos tu casa, departamento, galpón o terreno en los principales portales y redes sociales de San Juan. Vos solo preocupate por cobrar.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Tasación comercial gratuita.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Fotografía profesional y planos.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Asesoramiento legal y contratos.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Aceptamos propiedades para Crédito Hipotecario.</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="publish-form" id="formPublicar" onsubmit="enviarWhatsAppPublicar(event)">
+                            <h4 class="fw-bold mb-3">Cargá los datos de tu propiedad</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" id="pub_nombre" class="form-control" placeholder="Tu Nombre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" id="pub_telefono" class="form-control" placeholder="Tu WhatsApp" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select id="pub_tipo" class="form-select" required>
+                                        <option value="" disabled selected>Tipo de Propiedad</option>
+                                        <option>Casa</option>
+                                        <option>Departamento</option>
+                                        <option>PH</option>
+                                        <option>Terreno</option>
+                                        <option>Galpón / Local</option>
+                                        <option>Proyecto en Pozo</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="pub_operacion" class="form-select" required>
+                                        <option value="" disabled selected>¿Qué querés hacer?</option>
+                                        <option>Alquilar</option>
+                                        <option>Vender</option>
+                                        <option>Vender (Apto Crédito Hipotecario)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <input type="text" id="pub_ubicacion" class="form-control" placeholder="Ubicación / Barrio / Localidad (ej: Rivadavia, Capital...)" required>
+                            <textarea id="pub_mensaje" class="form-control" rows="3" placeholder="Contanos más: ambientes, metros cuadrados, características..."></textarea>
+                            <button type="submit" class="btn-submit-whatsapp mt-3">
+                                <i class="fab fa-whatsapp me-2"></i> Enviar por WhatsApp y Publicar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDITO HIPOTECARIO BANNER -->
+    <section id="hipotecario" class="py-5 bg-light">
+        <div class="container">
+            <div class="mortgage-banner">
+                <div>
+                    <h3 class="fw-bold mb-2"><i class="fas fa-university me-3"></i>Aceptamos viviendas para Crédito Hipotecario</h3>
+                    <p class="mb-0 opacity-75">Si tu propiedad cumple con los requisitos bancarios, te ayudamos a gestionarla para que accedas a los mejores planes de financiación UVA del mercado.</p>
+                </div>
+                <a href="#publicar" class="btn btn-light fw-bold px-4 py-2 rounded-pill text-nowrap">Consultar ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TASACION ONLINE -->
+    <section id="tasacion" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="fw-bold">¿Cuánto vale tu propiedad en San Juan?</h2>
+                    <p class="text-muted">Te enviamos una tasación orientativa en menos de 24 horas. Gratis, sin compromiso y basada en operaciones reales de la zona.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="publish-form" id="formTasacion" onsubmit="enviarWhatsAppTasacion(event)">
+                        <input type="text" id="tas_nombre" class="form-control" placeholder="Tu Nombre" required>
+                        <input type="tel" id="tas_telefono" class="form-control" placeholder="Tu WhatsApp" required>
+                        <input type="text" id="tas_direccion" class="form-control" placeholder="Dirección o Barrio de la propiedad" required>
+                        <select id="tas_tipo" class="form-select" required>
+                            <option value="" disabled selected>Tipo de propiedad</option>
+                            <option>Casa</option>
+                            <option>Departamento</option>
+                            <option>PH</option>
+                            <option>Terreno</option>
+                            <option>Galpón</option>
+                            <option>Local comercial</option>
+                        </select>
+                        <button type="submit" class="btn-submit-whatsapp mt-3" style="background-color: var(--primary-blue);">
+                            <i class="fas fa-chart-line me-2"></i> Pedir Tasación Gratis
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPINIONES / TESTIMONIOS -->
+    <section id="opiniones" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Clientes que confiaron en nosotros</h2>
+                <p class="text-muted">Más de 300 operaciones cerradas en San Juan. La experiencia nos respalda.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Testimonio 1 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Vendí mi departamento en el centro en 3 semanas y al mejor precio. El equipo es profesional, honesto y siempre disponible. La experiencia fue excelente de principio a fin."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">V</div>
+                            <div>
+                                <p class="testimonial-name">Verónica M.</p>
+                                <p class="testimonial-location">Capital, San Juan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Buscamos casa por meses en Rivadavia y Rawson. Con Grupo Inversa la encontramos en 2 semanas. Nos acompañaron en cada paso, desde la visita hasta la escritura. 100% recomendados."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">R</div>
+                            <div>
+                                <p class="testimonial-name">Roberto y Cecilia F.</p>
+                                <p class="testimonial-location">Rivadavia, San Juan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"La tasación online me dio el valor real en 24hs, sin visitas molestas. Después los contraté para vender mi galpón en el Parque Industrial y la operación salió perfecta. Muy profesionales."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">D</div>
+                            <div>
+                                <p class="testimonial-name">Diego A.</p>
+                                <p class="testimonial-location">Chimbas, San Juan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="text-white fw-bold">Grupo Inversa</h4>
+                    <p class="mt-3">Inmobiliaria & Propiedades en San Juan. Especialistas en alquileres, galpones, terrenos y proyectos en pozo en Gran San Juan. +15 años en el mercado.</p>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Propiedades</h5>
+                    <a href="#propiedades">Alquileres</a>
+                    <a href="#propiedades">Ventas</a>
+                    <a href="#propiedades">Galpones</a>
+                    <a href="#propiedades">Terrenos</a>
+                    <a href="#propiedades">Proyectos en Pozo</a>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Zonas</h5>
+                    <a href="#">Capital</a>
+                    <a href="#">Rivadavia</a>
+                    <a href="#">Rawson</a>
+                    <a href="#">Chimbas</a>
+                    <a href="#">Santa Lucía</a>
+                    <a href="#">Caucete</a>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Servicios</h5>
+                    <a href="#publicar">Publicar Propiedad</a>
+                    <a href="#tasacion">Tasación Online</a>
+                    <a href="#hipotecario">Crédito Hipotecario</a>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Contacto</h5>
+                    <p><i class="fab fa-whatsapp me-2"></i> +54 9 264 530-4372</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> San Juan, Argentina</p>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="text-center small">
+                © 2026 Grupo Inversa · Todos los derechos reservados
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTON CHATBOT (IZQUIERDA) -->
+    <button class="chatbot-float" onclick="toggleChatbot()" title="Asistente Virtual">
+        <i class="fas fa-comment-dots"></i>
+        <span class="chatbot-label">Asistente Virtual</span>
+    </button>
+
+    <!-- VENTANA CHATBOT -->
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <h5><i class="fas fa-robot me-2"></i>Asistente Grupo Inversa</h5>
+            <button class="chatbot-close" onclick="toggleChatbot()" title="Cerrar"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <!-- Contenido dinámico -->
+        </div>
+    </div>
+
+    <!-- WHATSAPP FLOTANTE (DERECHA) -->
+    <a href="https://wa.me/5492645304372" class="whatsapp-float" target="_blank" title="Chateá por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Lógica para enviar el formulario de "Publicar Propiedad" a WhatsApp
+        function enviarWhatsAppPublicar(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('pub_nombre').value;
+            const telefono = document.getElementById('pub_telefono').value;
+            const tipo = document.getElementById('pub_tipo').value;
+            const operacion = document.getElementById('pub_operacion').value;
+            const ubicacion = document.getElementById('pub_ubicacion').value;
+            const mensaje = document.getElementById('pub_mensaje').value;
+            
+            const texto = `¡Hola Grupo Inversa! Quiero publicitar mi propiedad.%0A%0A` +
+                          `*Nombre:* ${nombre}%0A` +
+                          `*Teléfono:* ${telefono}%0A` +
+                          `*Tipo de Propiedad:* ${tipo}%0A` +
+                          `*Operación:* ${operacion}%0A` +
+                          `*Ubicación:* ${ubicacion}%0A` +
+                          `*Detalles:* ${mensaje || 'Sin detalles adicionales'}`;
+            
+            const url = `https://wa.me/5492645304372?text=${texto}`;
+            window.open(url, '_blank');
+        }
+
+        // Lógica para enviar el formulario de "Tasación" a WhatsApp
+        function enviarWhatsAppTasacion(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('tas_nombre').value;
+            const telefono = document.getElementById('tas_telefono').value;
+            const direccion = document.getElementById('tas_direccion').value;
+            const tipo = document.getElementById('tas_tipo').value;
+            
+            const texto = `¡Hola Grupo Inversa! Quiero solicitar una tasación online gratuita.%0A%0A` +
+                          `*Nombre:* ${nombre}%0A` +
+                          `*WhatsApp:* ${telefono}%0A` +
+                          `*Dirección/Barrio:* ${direccion}%0A` +
+                          `*Tipo:* ${tipo}`;
+            
+            const url = `https://wa.me/5492645304372?text=${texto}`;
+            window.open(url, '_blank');
+        }
+
+        // Interactividad básica para los tabs del buscador
+        document.querySelectorAll('.search-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // ============ CHATBOT ============
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotBody = document.getElementById('chatbotBody');
+        const WHATSAPP_NUMBER = '5492645304372';
+
+        function toggleChatbot() {
+            chatbotWindow.classList.toggle('active');
+            if (chatbotWindow.classList.contains('active')) {
+                showMainMenu();
+            }
+        }
+
+        function showMainMenu() {
+            chatbotBody.innerHTML = `
+                <div class="chatbot-message">
+                    ¡Hola! 👋 Bienvenido/a a <strong>Grupo Inversa</strong>. Soy el asistente virtual. ¿En qué puedo ayudarte hoy?
+                </div>
+                <div class="chatbot-options">
+                    <button class="chatbot-option" onclick="showOption('servicios')">
+                        <i class="fas fa-info-circle"></i> Información sobre servicios
+                    </button>
+                    <button class="chatbot-option" onclick="showOption('visita')">
+                        <i class="fas fa-calendar-check"></i> Quiero agendar una visita
+                    </button>
+                    <button class="chatbot-option" onclick="showOption('publicar')">
+                        <i class="fas fa-bullhorn"></i> Quiero publicar mi propiedad
+                    </button>
+                    <button class="chatbot-option" onclick="showOption('tasacion')">
+                        <i class="fas fa-chart-line"></i> Tasar mi propiedad gratis
+                    </button>
+                    <button class="chatbot-option" onclick="showOption('otra')">
+                        <i class="fas fa-question-circle"></i> Otra consulta
+                    </button>
+                </div>
+            `;
+        }
+
+        function showOption(option) {
+            let response = '';
+            let waMessage = '';
+
+            switch(option) {
+                case 'servicios':
+                    response = `
+                        <div class="chatbot-response">
+                            <strong>🏢 Nuestros servicios en San Juan:</strong><br><br>
+                            ✅ Alquileres y ventas de casas, deptos y PH<br>
+                            ✅ Alquiler/Venta de galpones industriales<br>
+                            ✅ Terrenos en barrios cerrados y abiertos<br>
+                            ✅ Proyectos en pozo con financiación<br>
+                            ✅ Tasaciones online gratuitas<br>
+                            ✅ Gestión de Crédito Hipotecario<br><br>
+                            ¿Querés hablar con un asesor humano?
+                        </div>
+                    `;
+                    waMessage = 'Hola! Me interesa conocer más sobre los servicios de Grupo Inversa.';
+                    break;
+                case 'visita':
+                    response = `
+                        <div class="chatbot-response">
+                            <strong>📅 Agendar una visita</strong><br><br>
+                            Excelente decisión. Para coordinar una visita necesitamos saber qué propiedad te interesa.<br><br>
+                            Hacé click abajo y un asesor te responderá a la brevedad para coordinar día y horario.
+                        </div>
+                    `;
+                    waMessage = 'Hola! Quiero agendar una visita a una propiedad que vi en la web.';
+                    break;
+                case 'publicar':
+                    response = `
+                        <div class="chatbot-response">
+                            <strong>📣 Publicar mi propiedad</strong><br><br>
+                            ¡Genial! En Grupo Inversa publicamos tu propiedad en los principales portales de San Juan.<br><br>
+                            Te ofrecemos: tasación gratis, fotos profesionales y asesoramiento legal. Escribinos y te contamos cómo empezar.
+                        </div>
+                    `;
+                    waMessage = 'Hola! Quiero publicar mi propiedad con Grupo Inversa.';
+                    break;
+                case 'tasacion':
+                    response = `
+                        <div class="chatbot-response">
+                            <strong>📈 Tasación online GRATIS</strong><br><br>
+                            Te enviamos el valor real de tu propiedad en menos de 24hs, basado en operaciones recientes de tu zona.<br><br>
+                            Sin visitas, sin compromiso. Escribinos y empezamos.
+                        </div>
+                    `;
+                    waMessage = 'Hola! Quiero solicitar una tasación online gratuita para mi propiedad.';
+                    break;
+                case 'otra':
+                    response = `
+                        <div class="chatbot-response">
+                            <strong>💬 Otra consulta</strong><br><br>
+                            Contanos en qué podemos ayudarte. Un asesor de Grupo Inversa te responderá personalmente por WhatsApp.
+                        </div>
+                    `;
+                    waMessage = 'Hola! Tengo una consulta general para Grupo Inversa.';
+                    break;
+            }
+
+            chatbotBody.innerHTML = `
+                <button class="chatbot-back" onclick="showMainMenu()"><i class="fas fa-arrow-left me-1"></i> Volver al menú</button>
+                ${response}
+                <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}" target="_blank" class="chatbot-wa-btn">
+                    <i class="fab fa-whatsapp"></i> Chatear por WhatsApp ahora
+                </a>
+            `;
+        }
+        
+        // NOTA: Se eliminó el setTimeout de auto-apertura para que el bot NO tape el contenido de la página. 
+        // Ahora es 100% discreto y solo se abre cuando el usuario hace clic en el botón "Asistente Virtual".
+    </script>
+</body>
+</html>
